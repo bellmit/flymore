@@ -1,0 +1,2430 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="webkit" name="renderer">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="telephone=no" name="format-detection">
+    <title>仙侠修真 - 丹樂文庫 - 丹樂網 - 完結耽美文珍藏書庫</title>
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/css/layui.css" rel="stylesheet">
+<link href="https://flymore.ga/skin/default/css/site.min.css" rel="stylesheet" />
+<link href="https://flymore.ga/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+<div class="layui-bg-black fly-header">
+    <div class="layui-container">
+        <a class="fly-logo" href="https://flymore.ga/">
+            <img alt="qcold" src="https://flymore.ga/skin/default/images/logo-q.png">
+        </a>
+        <ul class="layui-nav fly-nav" lay-filter="">
+            <li class="layui-nav-item layui-hide-xs">
+                <a href="javascript:"><i class="layui-icon layui-icon-fire"></i> 排行榜</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="https://flymore.ga/html/good/">推荐排行</a></dd>
+                    <dd><a href="https://flymore.ga/html/hots/">总点击榜</a></dd>
+                    <dd><a href="https://flymore.ga/html/year/">年点击榜</a></dd>
+                    <dd><a href="https://flymore.ga/html/season/">季点击榜</a></dd>
+                    <dd><a href="https://flymore.ga/book/">新鲜上线</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item layui-hide-xs">
+                <a href="https://flymore.ga/book/"><i class="layui-icon layui-icon-fire"></i> 分类</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="https://flymore.ga/book/future/">末世机甲</a></dd>
+                    <dd><a href="https://flymore.ga/book/modern/">现代都市</a></dd>
+                    <dd><a href="https://flymore.ga/book/antiquity/">古风雅韵</a></dd>
+                    <dd><a href="https://flymore.ga/book/rebirth/">穿越重生</a></dd>
+                    <dd><a href="https://flymore.ga/book/fantasy/">玄幻网游</a></dd>
+                    <dd><a href="https://flymore.ga/book/xianxia/">仙侠修真</a></dd>
+                    <dd><a href="https://flymore.ga/book/terror/">灵异神怪</a></dd>
+                    <dd><a href="https://flymore.ga/book/same/">耽美同人</a></dd>
+                    <dd><a href="https://flymore.ga/book/other/">耽美其他</a></dd>
+                    <dd><a href="https://flymore.ga/book/emotion/">酷儿话题</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item layui-hide-xs">
+                <a class="donate" href="javascript:"><i class="layui-icon layui-icon-diamond"></i> 赞助我们</a>
+            </li>
+        </ul>
+        <ul class="layui-nav fly-nav-user">
+            <li class="layui-nav-item">
+                <a href="javascript:" id="search"><i class="layui-icon layui-icon-search" style="font-size: 24px;"></i></a>
+            </li>
+            <script src="https://flymore.ga/e/member/login/loginjs.php"></script>
+        </ul>
+    </div>
+</div>
+
+<div class="fly-panel fly-column layui-hide-sm layui-show-xs menuBar" style="display: none">
+    <div class="layui-container">
+        <ul class="layui-clear">
+            <li><a href='https://flymore.ga/book/future/'>科幻</a></li>
+            <li><a href='https://flymore.ga/book/modern/'>现代</a></li>
+            <li><a href='https://flymore.ga/book/antiquity/'>古代</a></li>
+            <li><a href='https://flymore.ga/book/rebirth/'>穿越</a></li>
+            <li><a href='https://flymore.ga/book/fantasy/'>玄幻</a></li>
+            <li><a href='https://flymore.ga/book/xianxia/'>仙侠</a></li>
+            <li><a href='https://flymore.ga/book/terror/'>灵异</a></li>
+            <li><a href='https://flymore.ga/book/same/'>同人</a></li>
+            <li><a href='https://flymore.ga/book/other/'>其他</a></li>
+            <li><a href="https://flymore.ga/book/emotion/">玩觅 <span class="layui-badge-dot"></span></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="layui-container">
+    <div class="layui-col-md7" style="display: none;position: fixed;background-color: #515a6e; opacity: 0.8;z-index: 10;">
+        <div class="fly-panel" id="search-bar"  style="background-color: #515a6e;padding: 20px 20px; text-align: center;">
+            <form action='https://flymore.ga/e/search/index.php' class="layui-form" method='post'>
+                <input class="layui-input" id='words' name='keyboard' placeholder="检索功能已停止使用" style="width: 70%;display: inline-block" type="text">
+                <input name="show" type="hidden" value="title,writer,newstext"/>
+                <input name="tempid" type="hidden" value="1"/>
+                <button class="layui-btn" lay-filter="searchSubmit" lay-submit style="width:20%;display:inline-block">检索</button>
+            </form>
+            <div class="fly-tags" style="margin-top: 10px"><a href="https://flymore.ga/e/tags/?tagid=413" target="_blank">穿越</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=3950" target="_blank">重生</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=1638" target="_blank">强强</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4192" target="_blank">甜文</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=2718" target="_blank">生子</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4107" target="_blank">包子</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4216" target="_blank">都市</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4187" target="_blank">修真</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4181" target="_blank">种田</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4158" target="_blank">娱乐圈</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4102" target="_blank">系统</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=1660" target="_blank">年下</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4193" target="_blank">灵异</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=25" target="_blank">同人</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=306" target="_blank">男人</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4248" target="_blank">豪门</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=2449" target="_blank">HE</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4005" target="_blank">宫廷</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4273" target="_blank">空间</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4199" target="_blank">末世</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4554" target="_blank">1V1</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=370" target="_blank">网游</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=2442" target="_blank">自由自在</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=3975" target="_blank">架空</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4285" target="_blank">励志</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4250" target="_blank">异能</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4124" target="_blank">异世</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=412" target="_blank">时空</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4318" target="_blank">快穿</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=427" target="_blank">哥哥</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=91" target="_blank">少年</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4272" target="_blank">机甲</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=385" target="_blank">游戏</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4369" target="_blank">网配</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=6883" target="_blank">长生千叶</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4105" target="_blank">莫晨欢</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=6617" target="_blank">叶忆落</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4471" target="_blank">虐恋</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=129" target="_blank">幸福</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=5082" target="_blank">颜若优雅</a></div>
+        </div>
+    </div>
+    <div class="layui-row layui-col-space15">
+
+
+    <div class="layui-col-md12">
+        <div class="home-tips">
+            <i class="layui-icon layui-icon-speaker" style="float:left;line-height:17px;"></i>
+            <div class="home-tips-container">
+                                <span style="color: red;padding-left: 5px;"><a href="https://flymore.ga/book/emotion/2019-10-04/87354.html" target="_blank">舍不得说再见，但已到离别时</a></span>
+                                <span style="color: red;padding-left: 5px;"><a href="https://flymore.ga/book/emotion/2018-01-06/73604.html" target="_blank">书友必看：打开追梦网的正确姿势</a></span>
+                            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md8">
+        <!--列表开始-->
+        <div class="fly-panel">
+            <div class="fly-panel-title fly-filter">
+                <span class="layui-breadcrumb" lay-separator=">">
+                  <a href="https://flymore.ga/index.html">首页</a>&nbsp;>&nbsp;<a href="https://flymore.ga/book/">文库</a>&nbsp;>&nbsp;<a href="https://flymore.ga/book/xianxia/">仙侠修真</a>
+                </span>
+            </div>
+        </div>
+        <div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-31/72334.html">仙侠之我有一口棺（修真一）——源代码</a>
+        </div>
+        <div class="article-abstract"> 文案：<br />
+ <br />
+叶九秋捡到了一口棺，棺内的尸体是在五百年后死去的他自己。<br />
+ <br />
+那具尸体被炼制成尸傀，成为了将伴他一生的命尸。<br />
+ <br />
+当傻白甜大少爷，遇到在五百年间经历种种欺骗背叛伤得遍体鳞伤，而后终于严重黑化的自己。<br />
+ <br />
+叶九秋（跃跃欲试）：呀，要干掉那些未来会坑害我的人吗？<br />
+ <br />
+叶九幽（冷笑）：我最恨的人，是我自己。恨当初为何那样傻白甜。<br />
+ <br />
+叶...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-31</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;134</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-31/72333.html">仙侠之我有一口棺（修真二）——源代码</a>
+        </div>
+        <div class="article-abstract"> 第53章：灵墟盛典<br />
+ <br />
+魔龙子终于见到魂牵梦萦的美人&mdash;&mdash;虽然美人现下易容成了一般清秀的脸，但他却自觉能够透过表象看到本质，即使眼中所见是易容，他也能自动带入叶九秋本人的精致容貌。于是叶九秋即使是普通的皱眉或微笑，看在他眼里都只有一个字：美！<br />
+ <br />
+为了多看几眼，他很殷勤的邀请叶九秋与他上楼小聚。<br />
+ <br />
+至于叶九幽，他只是...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-31</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;32</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-31/72332.html">仙侠之我有一口棺（修真三）——源代码</a>
+        </div>
+        <div class="article-abstract"> 第102章：大哥<br />
+ <br />
+所有人都在等天地间阴气累积到顶点的时候。<br />
+ <br />
+但也并不需静等，相识的修士凑到一起，或是交流修行心得，或是感慨厄难谷此行，让此地一时间有了几分修真大会的热闹情形。更有甚者，连案几茶盏都摆上了，或是幻境或是旁的手段，叫白雪地中有繁花绽放，有玉池琼楼，一派仙家景象。<br />
+ <br />
+但很快，有部分人的注意力便被雪地上一处纠纷给...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-31</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;41</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-31/72331.html">仙侠之我有一口棺（修真四）——源代码</a>
+        </div>
+        <div class="article-abstract"> 第149章：比斗<br />
+ <br />
+韩素活下来了，并且来到了东大陆。没想到十多年后，还能与这人再见一面，叶九秋忍不住感叹，这是何等奇妙的巧遇。<br />
+ <br />
+但韩素在惊鸿一现后便隐去了身形，似乎是有意避而不见。而叶九秋也不愿多此一举，硬是要把人拉出来叙个旧。再说了，韩素与他们间的关系很是微妙，曾经敌对过，也有过救命之恩，想来韩素对他们的感情也格外复杂，故...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-31</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;32</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-31/72330.html">系统之我的金手指是终极Boss（修真）上——长乐夜未央</a>
+        </div>
+        <div class="article-abstract"> 文案：<br />
+ <br />
+陆修远穿越了，绑定了一个对他图谋不轨的伪系统，各种黑锅甩来他想躲都躲不过。<br />
+ <br />
+陆修远：我把你当金手指，你却拿我当枪使！<br />
+ <br />
+系统君：你蠢，怪我咯？<br />
+ <br />
+＊＊＊＊＊＊<br />
+ <br />
+不但系统君很坑爹，连他觊觎很久的师尊属性都不太对。直到他们在一起很久很久以后，他才撞破了师尊的小秘密。<br />
+ <br />
+陆修远：师尊，您能不能当这是个意外？<br />
+ <br />
+乾离：不可以。<br />
+ <br />
+＊＊＊＊＊＊<br />
+ <br />
+陆修远：我...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-31</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;65</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-31/72329.html">系统之我的金手指是终极Boss（修真）下+番外——长乐夜未央</a>
+        </div>
+        <div class="article-abstract"> 第五十五章<br />
+ <br />
+&ldquo;290，290。&rdquo;<br />
+ <br />
+回到自己的小院子以后，陆修远立马去戳了290系统君，可是戳了很久它都不理他，如同不存在一般。<br />
+ <br />
+陆修远不解的抓抓脑袋，好像自天玑宫出发到华陵川这段时间290都没出现过。他就纳闷了，好好的怎么就不出声了呢？连他想要调系统界面查看气运值都没反应了，也没听见它说要升级系统啥的。<br />
+ <br />
+290系统...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-31</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;23</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-31/72323.html">重生之高冷师兄受难记（修真）上——lililicat</a>
+        </div>
+        <div class="article-abstract"> 文案：<br />
+ <br />
+古代修仙。也可以叫做 逗比中二师兄的奇幻漂流。<br />
+ <br />
+高冷而欠揍的断腿仙子攻的萌虐之旅。<br />
+ <br />
+师兄重生到过去扭转乾坤，阻止悲剧。<br />
+ <br />
+师兄和师弟的cp。<br />
+ <br />
+师兄是攻。<br />
+ <br />
+就是这样。<br />
+ <br />
+内容标签：仙侠修真<br />
+ <br />
+主角：李鹤宸，凌寒 ┃ 其它：残疾断腿攻，假肢，轮椅，重生<br />
+ <br />
+第1章<br />
+ <br />
+今天是云宗新任宗主登基的第一天。<br />
+ <br />
+然而作为宗主的嫡系...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-31</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;75</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-31/72322.html">重生之高冷师兄受难记（修真）下——lililicat</a>
+        </div>
+        <div class="article-abstract"> 第53章<br />
+ <br />
+到底身在何处？是噩梦的最深处？记忆的最深处？亦或是其他人记忆深处的梦魇？<br />
+ <br />
+李鹤宸听到周围的惨叫声越来越激烈，地面上似乎被什么液体所浸没，淹没到了他的手背。<br />
+ <br />
+又似乎有什么东西，在这浅水中游走，宛若体型蜿蜒的长蛇。<br />
+ <br />
+&ldquo;李鹤宸，你带我看了什么，这可怕的景象。&rdquo;烟浮光死一般的声音在他耳边悄然响起。<br />
+ <br />
+&amp;ldq...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-31</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;22</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-21/72186.html">重生之嫁衣系统（修真一）——伯夏</a>
+        </div>
+        <div class="article-abstract"> 文案：<br />
+ <br />
+撸文一时爽，醒来乱葬岗！白羽在乱葬岗踢到一黑化毁容男主。<br />
+ <br />
+当看到一撑着红伞穿红衣的男人，他夸了两句好看，立时得到一穿红衣修炼的嫁衣系统。系统说他被雷文雷死，重生到书中，他不服！辣鸡系统！<br />
+ <br />
+然而他居然成为了那个男人的徒弟！可是，他的师父为什么是他的父亲？！那个最大的反派boss天族圣帝，预言注定被黑化男主丧心病狂弄死，还睡...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-21</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;224</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-21/72185.html">重生之嫁衣系统（修真二）——伯夏</a>
+        </div>
+        <div class="article-abstract"> 第39章：惩罚<br />
+ <br />
+&ldquo;小羽，你在做什么？&rdquo;红衣男人逆光而立，墨眸一片暗沉，如最繁美的画卷般的脸上挂着抹似有若无的笑意，嗓音很低含着莫名的危险。<br />
+ <br />
+白羽在看到门口那个无声无息到来的人时，整个人都石化了，他的内心是崩溃的，僵硬地扭过头，看着跪在自己身前美如冠玉却一丝不挂宛若在被自己调戏与凌虐的少年。<br />
+ <br />
+&ldquo;起来，把衣...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-21</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;27</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-21/72184.html">重生之嫁衣系统（修真三）——伯夏</a>
+        </div>
+        <div class="article-abstract"> 第76章<br />
+ <br />
+白羽最终羞耻地选择了后者，毕竟还要和他师父出门，绑上那个地方穿上裤子根本看不到。<br />
+ <br />
+帝羽乐见其成，&ldquo;小羽的选择甚合为师之意！&rdquo;<br />
+ <br />
+他亲自动手将如少年般青涩、修长小家伙用赤色的发带缠绕起来，扎了一抹漂亮的蝴蝶结。<br />
+ <br />
+白羽完全不想说什么了。<br />
+ <br />
+&ldquo;为了防止小羽管不住这根东西，为师的发带上有设下禁...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-21</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;30</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-21/72183.html">重生之嫁衣系统（修真四）——伯夏</a>
+        </div>
+        <div class="article-abstract"> 第116章<br />
+ <br />
+白羽讪讪地收回嘴，他只是心塞愤愤不平地发泄一下。<br />
+ <br />
+帝印想了想，从怀里掏出那只摸上去手感极好的小家伙。<br />
+ <br />
+男人温柔好听的声音响起，&ldquo;小羽是饿了，要喝奶吗？&rdquo;<br />
+ <br />
+白羽猛地摇头，&ldquo;我不要，啾！&rdquo;<br />
+ <br />
+白羽气馁地垂下头，他竭力将话说的正常，但听在耳中却是嫩生生的声音，像是没断奶的孩子一样，奶声奶气的。<br />
+...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-21</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;24</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-21/72169.html">穿书之定仙门（修真）上——一袈的小白花</a>
+        </div>
+        <div class="article-abstract"> 文案：<br />
+ <br />
+别说他穿书之后金手指不够。<br />
+ <br />
+原书的男主是他弟弟，原书没出现过的上仙是他的青梅竹马，哪怕是传说中的凤凰，也时常与他饮酒作乐，好不畅快。<br />
+ <br />
+他本以为他来到这个世界就是为了取代主角弟弟成为主角的，后来他发现他想错了。<br />
+ <br />
+某上仙：&ldquo;来，咱们该睡觉了。&rdquo;<br />
+ <br />
+&ldquo;睡什么觉，谁跟你睡觉，你他妈的别过来，滚！&rdquo;<br />
+...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-21</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;81</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-21/72168.html">穿书之定仙门（修真）下——一袈的小白花</a>
+        </div>
+        <div class="article-abstract"> 第36章<br />
+ <br />
+到了第三日，曲义一早便来到了薛鸿生的洞府前，他其实压根就没想得到什么丹果，之所以与薛鸿生起冲突，那是为了捡一个软柿子捏，以免他被人当成一个软柿子捏碎了。<br />
+ <br />
+这只是其一，其二便是，薛鸿生因为筑基的时候不足二十，筑基之后，人就会老得慢很多，故而十年过去了，薛鸿生看起来也不过是个二十出头的青年，正是一个男子最为清秀俊朗...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-21</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;22</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-18/72103.html">带着老公去修仙——馄饨酱</a>
+        </div>
+        <div class="article-abstract">带着老公去修仙——馄饨酱...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-18</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;79</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-18/72084.html">不讨喜主角的真面目（穿越修真）上——仆语非人</a>
+        </div>
+        <div class="article-abstract">不讨喜主角的真面目（穿越 修真）上——仆语非人...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-18</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;143</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-18/72083.html">不讨喜主角的真面目（穿越修真）下——仆语非人</a>
+        </div>
+        <div class="article-abstract">不讨喜主角的真面目（穿越 修真）下——仆语非人...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-18</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;34</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-09/71990.html">无名之火（修真末世）上——木叶籽</a>
+        </div>
+        <div class="article-abstract">无名之火（修真 末世）上——木叶籽...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-09</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;192</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-09/71989.html">无名之火（修真末世）下——木叶籽</a>
+        </div>
+        <div class="article-abstract">无名之火（修真 末世）下——木叶籽...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-09</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;26</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-07/71958.html">我和神经病的日常（修真）上——夏天有点冷</a>
+        </div>
+        <div class="article-abstract">我和神经病的日常（修真）上——夏天有点冷...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-07</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;111</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-07/71957.html">我和神经病的日常（修真）下——夏天有点冷</a>
+        </div>
+        <div class="article-abstract">我和神经病的日常（修真）下——夏天有点冷...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-07</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;27</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-07/71943.html">猎户的魔尊媳妇儿（包子修真）——乙纯</a>
+        </div>
+        <div class="article-abstract">猎户的魔尊媳妇儿（包子 修真）——乙纯...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-07</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;149</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-07/71932.html">重生之小爷是个渣（重生之少爷好凶残修真）+番外——那棵歪脖子树</a>
+        </div>
+        <div class="article-abstract">重生之小爷是个渣（重生之少爷好凶残 修真）+番外——那棵歪脖子树...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-07</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;117</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71486.html">谈谈那个穿进书里来追我的家伙（修真）上——莫晓贤</a>
+        </div>
+        <div class="article-abstract">谈谈那个穿进书里来追我的家伙（修真）上——莫晓贤...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;83</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71483.html">谈谈那个穿进书里来追我的家伙（修真）中——莫晓贤</a>
+        </div>
+        <div class="article-abstract">谈谈那个穿进书里来追我的家伙（修真）中——莫晓贤...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;30</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71480.html">谈谈那个穿进书里来追我的家伙（修真）下——莫晓贤</a>
+        </div>
+        <div class="article-abstract">谈谈那个穿进书里来追我的家伙（修真）下——莫晓贤...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;34</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71410.html">修真式分居（包子）上——大圆子</a>
+        </div>
+        <div class="article-abstract">修真式分居（包子）上——大圆子...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;112</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71408.html">修真式分居（包子）下——大圆子</a>
+        </div>
+        <div class="article-abstract">修真式分居（包子）下——大圆子...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;34</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71326.html">重生修真之恋上自己上——子不语神鬼</a>
+        </div>
+        <div class="article-abstract">重生修真之恋上自己 上——子不语神鬼...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;75</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71323.html">重生修真之恋上自己中——子不语神鬼</a>
+        </div>
+        <div class="article-abstract">重生修真之恋上自己 中——子不语神鬼...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;14</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71322.html">重生修真之恋上自己下——子不语神鬼</a>
+        </div>
+        <div class="article-abstract">重生修真之恋上自己 下——子不语神鬼...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;15</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71314.html">兰翔修仙技术学院（修真灵异一）——长生千叶</a>
+        </div>
+        <div class="article-abstract">兰翔修仙技术学院（修真 灵异 一）——长生千叶...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;73</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71312.html">兰翔修仙技术学院（修真灵异二）——长生千叶</a>
+        </div>
+        <div class="article-abstract">兰翔修仙技术学院（修真 灵异 二）——长生千叶...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;26</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71310.html">兰翔修仙技术学院（修真灵异三）——长生千叶</a>
+        </div>
+        <div class="article-abstract">兰翔修仙技术学院（修真 灵异 三）——长生千叶...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;28</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71308.html">兰翔修仙技术学院（修真灵异四）——长生千叶</a>
+        </div>
+        <div class="article-abstract">兰翔修仙技术学院（修真 灵异 四）——长生千叶...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;24</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71306.html">兰翔修仙技术学院（修真灵异五）——长生千叶</a>
+        </div>
+        <div class="article-abstract">兰翔修仙技术学院（修真 灵异 五）——长生千叶...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;33</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71286.html">重生带着儿子闯仙界（修真）上——大笨猫</a>
+        </div>
+        <div class="article-abstract">重生带着儿子闯仙界（修真）上——大笨猫...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;107</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71283.html">重生带着儿子闯仙界（修真）下——大笨猫</a>
+        </div>
+        <div class="article-abstract">重生带着儿子闯仙界（修真）下——大笨猫...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;43</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71246.html">问尘（修真穿书）+番外——行客不知名</a>
+        </div>
+        <div class="article-abstract">问尘（修真 穿书）+番外——行客不知名...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;34</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71232.html">论黑化徒弟的危险性（修真）上——惊痕</a>
+        </div>
+        <div class="article-abstract">论黑化徒弟的危险性（修真）上——惊痕...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;51</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71229.html">论黑化徒弟的危险性（修真）下——惊痕</a>
+        </div>
+        <div class="article-abstract">论黑化徒弟的危险性（修真）下——惊痕...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;18</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71208.html">修真之道长妖娆上——萧因</a>
+        </div>
+        <div class="article-abstract">修真之道长妖娆 上——萧因...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;39</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71206.html">修真之道长妖娆下+番外——萧因</a>
+        </div>
+        <div class="article-abstract">修真之道长妖娆 下+番外——萧因...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;19</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71193.html">我不是魔帝（修真）——信渡</a>
+        </div>
+        <div class="article-abstract">我不是魔帝（修真）——信渡...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;35</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71168.html">景寂渊空（穿越修真灵异）——黑心木</a>
+        </div>
+        <div class="article-abstract">景寂渊空（穿越 修真 灵异）——黑心木...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;21</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/71106.html">重生之仇敌总是在精分（重生之愧偿有欠修真）上——两袖临风</a>
+        </div>
+        <div class="article-abstract">重生之仇敌总是在精分（重生之愧偿有欠 修真）上——两袖临风...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;52</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/71104.html">我家炮灰丁丁短小（修真）——七月霂凉</a>
+        </div>
+        <div class="article-abstract">我家炮灰丁丁短小（修真）——七月霂凉...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;50</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/71073.html">穿越聊斋之书生不好当啊（修真）上——米娜14</a>
+        </div>
+        <div class="article-abstract">穿越聊斋之书生不好当啊（修真）上——米娜14...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;68</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/71070.html">穿越聊斋之书生不好当啊（修真）中——米娜14</a>
+        </div>
+        <div class="article-abstract">穿越聊斋之书生不好当啊（修真）中——米娜14...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;28</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/71069.html">穿越聊斋之书生不好当啊（修真）下——米娜14</a>
+        </div>
+        <div class="article-abstract">穿越聊斋之书生不好当啊（修真）下——米娜14...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;26</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-10-01/71047.html">仙家杂货店（修真）——暮色华灯</a>
+        </div>
+        <div class="article-abstract">仙家杂货店（修真）——暮色华灯...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-10-01</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;37</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70887.html">重生之成魔（修真）上——无渊可秋</a>
+        </div>
+        <div class="article-abstract">重生之成魔（修真）上——无渊可秋...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;56</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70886.html">重生之成魔（修真）下——无渊可秋</a>
+        </div>
+        <div class="article-abstract">重生之成魔（修真）下——无渊可秋...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70884.html">修仙精分作大死（穿越修真）上——曲时</a>
+        </div>
+        <div class="article-abstract">修仙精分作大死（穿越 修真）上——曲时...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;26</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70883.html">修仙精分作大死（穿越修真）下+番外——曲时</a>
+        </div>
+        <div class="article-abstract">修仙精分作大死（穿越 修真）下+番外——曲时...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;15</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70869.html">修真重生之弥补男神的百种方式（修真）+番外——十里烟尘</a>
+        </div>
+        <div class="article-abstract">修真重生之弥补男神的百种方式（修真）+番外——十里烟尘...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;23</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70833.html">修真之叫你别撩我的剑上——壑舟须臾</a>
+        </div>
+        <div class="article-abstract">修真之叫你别撩我的剑 上——壑舟须臾...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;51</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70832.html">修真之叫你别撩我的剑下——壑舟须臾</a>
+        </div>
+        <div class="article-abstract">修真之叫你别撩我的剑 下——壑舟须臾...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;15</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70761.html">主角总想捕捉我（修真一）——原罪少年</a>
+        </div>
+        <div class="article-abstract">主角总想捕捉我（修真 一）——原罪少年...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;66</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70760.html">主角总想捕捉我（修真二）——原罪少年</a>
+        </div>
+        <div class="article-abstract">主角总想捕捉我（修真 二）——原罪少年...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;17</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70759.html">主角总想捕捉我（修真三）——原罪少年</a>
+        </div>
+        <div class="article-abstract">主角总想捕捉我（修真 三）——原罪少年...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;14</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70758.html">主角总想捕捉我（修真四）——原罪少年</a>
+        </div>
+        <div class="article-abstract">主角总想捕捉我（修真 四）——原罪少年...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;17</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70692.html">傻逼别跑（重生之来啊互相伤害！修真）——疏冷</a>
+        </div>
+        <div class="article-abstract">傻逼别跑（重生之来啊互相伤害！ 修真）——疏冷...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;24</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70596.html">穿书之男主分分钟黑化（修真包子一）——乙纯</a>
+        </div>
+        <div class="article-abstract">穿书之男主分分钟黑化（修真 包子 一）——乙纯...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;100</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70595.html">穿书之男主分分钟黑化（修真包子二）——乙纯</a>
+        </div>
+        <div class="article-abstract">穿书之男主分分钟黑化（修真 包子 二）——乙纯...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;45</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70594.html">穿书之男主分分钟黑化（修真包子三）——乙纯</a>
+        </div>
+        <div class="article-abstract">穿书之男主分分钟黑化（修真 包子 三）——乙纯...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;30</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70593.html">穿书之男主分分钟黑化（修真包子四）——乙纯</a>
+        </div>
+        <div class="article-abstract">穿书之男主分分钟黑化（修真 包子 四）——乙纯...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;40</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70544.html">是男颜不是祸水（修真）——花为黄泉</a>
+        </div>
+        <div class="article-abstract">是男颜不是祸水（修真）——花为黄泉...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;32</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-03/70519.html">修仙之莫如（修真穿越）——溪水冰冰</a>
+        </div>
+        <div class="article-abstract">修仙之莫如（修真 穿越）——溪水冰冰...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-03</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;17</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70484.html">男主黑化中（修真穿越）上——莲舟轻泛</a>
+        </div>
+        <div class="article-abstract">男主黑化中（修真 穿越）上——莲舟轻泛...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;34</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70483.html">男主黑化中（修真穿越）下+番外——莲舟轻泛</a>
+        </div>
+        <div class="article-abstract">男主黑化中（修真 穿越）下+番外——莲舟轻泛...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;14</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70457.html">九世养成（穿越修真一）——繁丧三千</a>
+        </div>
+        <div class="article-abstract">九世养成（穿越 修真 一）——繁丧三千...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;207</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70456.html">九世养成（穿越修真二）——繁丧三千</a>
+        </div>
+        <div class="article-abstract">九世养成（穿越 修真 二）——繁丧三千...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;24</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70455.html">九世养成（穿越修真三）——繁丧三千</a>
+        </div>
+        <div class="article-abstract">九世养成（穿越 修真 三）——繁丧三千...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;19</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70454.html">九世养成（穿越修真四）——繁丧三千</a>
+        </div>
+        <div class="article-abstract">九世养成（穿越 修真 四）——繁丧三千...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;15</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70450.html">穿书之谢反派独宠之恩（修真）上——咩小君</a>
+        </div>
+        <div class="article-abstract">穿书之谢反派独宠之恩（修真）上——咩小君...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;65</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70449.html">穿书之谢反派独宠之恩（修真）下+番外——咩小君</a>
+        </div>
+        <div class="article-abstract">穿书之谢反派独宠之恩（修真）下+番外——咩小君...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;17</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70382.html">重生之妖道再临（修真）上——公子于歌</a>
+        </div>
+        <div class="article-abstract">重生之妖道再临（修真）上——公子于歌...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;58</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70381.html">重生之妖道再临（修真）下——公子于歌</a>
+        </div>
+        <div class="article-abstract">重生之妖道再临（修真）下——公子于歌...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;16</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70361.html">我把师弟当灵兽（反派的小兽修真）上——三色包子</a>
+        </div>
+        <div class="article-abstract">我把师弟当灵兽（反派的小兽 修真）上——三色包子...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;43</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70360.html">我把师弟当灵兽（反派的小兽修真）下——三色包子</a>
+        </div>
+        <div class="article-abstract">我把师弟当灵兽（反派的小兽 修真）下——三色包子...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70331.html">掌门的兔子（穿越修真）上——荷语青妃</a>
+        </div>
+        <div class="article-abstract">掌门的兔子（穿越 修真）上——荷语青妃...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;47</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70330.html">掌门的兔子（穿越修真）下——荷语青妃</a>
+        </div>
+        <div class="article-abstract">掌门的兔子（穿越 修真）下——荷语青妃...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;22</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70279.html">看谁都像我道侣（穿越修真一）——竹亦心</a>
+        </div>
+        <div class="article-abstract">看谁都像我道侣（穿越 修真 一）——竹亦心...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;41</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70278.html">看谁都像我道侣（穿越修真二）——竹亦心</a>
+        </div>
+        <div class="article-abstract">看谁都像我道侣（穿越 修真 二）——竹亦心...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;16</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70277.html">看谁都像我道侣（穿越修真三）——竹亦心</a>
+        </div>
+        <div class="article-abstract">看谁都像我道侣（穿越 修真 三）——竹亦心...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;10</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70276.html">看谁都像我道侣（穿越修真四）——竹亦心</a>
+        </div>
+        <div class="article-abstract">看谁都像我道侣（穿越 修真 四）——竹亦心...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;13</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70269.html">重生之反派有话说（修真一）——莫晨欢</a>
+        </div>
+        <div class="article-abstract">重生之反派有话说（修真 一）——莫晨欢...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;133</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70268.html">重生之反派有话说（修真二）——莫晨欢</a>
+        </div>
+        <div class="article-abstract">重生之反派有话说（修真 二）——莫晨欢...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;28</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70267.html">重生之反派有话说（修真三）——莫晨欢</a>
+        </div>
+        <div class="article-abstract">重生之反派有话说（修真 三）——莫晨欢...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;28</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70266.html">重生之反派有话说（修真四）——莫晨欢</a>
+        </div>
+        <div class="article-abstract">重生之反派有话说（修真 四）——莫晨欢...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;20</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70265.html">重生之反派有话说（修真五）——莫晨欢</a>
+        </div>
+        <div class="article-abstract">重生之反派有话说（修真 五）——莫晨欢...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;42</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70262.html">我家道侣每个身份都很吊（修真穿越）上——留史楚韵</a>
+        </div>
+        <div class="article-abstract">我家道侣每个身份都很吊（修真 穿越）上——留史楚韵...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;52</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70261.html">我家道侣每个身份都很吊（修真穿越）下+番外——留史楚韵</a>
+        </div>
+        <div class="article-abstract">我家道侣每个身份都很吊（修真 穿越）下+番外——留史楚韵...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70257.html">穿书之我有特殊的御剑技巧（修真）上——Attire</a>
+        </div>
+        <div class="article-abstract">穿书之我有特殊的御剑技巧（修真）上——Attire...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;39</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70256.html">穿书之我有特殊的御剑技巧（修真）中——Attire</a>
+        </div>
+        <div class="article-abstract">穿书之我有特殊的御剑技巧（修真）中——Attire...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;10</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70255.html">穿书之我有特殊的御剑技巧（修真）下+番外——Attire</a>
+        </div>
+        <div class="article-abstract">穿书之我有特殊的御剑技巧（修真）下+番外——Attire...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;10</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70253.html">重生之师父，这剧情不对（修真）上——殿下笑</a>
+        </div>
+        <div class="article-abstract">重生之师父，这剧情不对（修真）上——殿下笑...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;55</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70252.html">重生之师父，这剧情不对（修真）中——殿下笑</a>
+        </div>
+        <div class="article-abstract">重生之师父，这剧情不对（修真）中——殿下笑...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;10</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70251.html">重生之师父，这剧情不对（修真）下——殿下笑</a>
+        </div>
+        <div class="article-abstract">重生之师父，这剧情不对（修真）下——殿下笑...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;10</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70243.html">所有人都以为上仙他精分（修真）上——宏观经济学</a>
+        </div>
+        <div class="article-abstract">所有人都以为上仙他精分（修真）上——宏观经济学...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;23</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70242.html">所有人都以为上仙他精分（修真）下——宏观经济学</a>
+        </div>
+        <div class="article-abstract">所有人都以为上仙他精分（修真）下——宏观经济学...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;12</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70232.html">修仙之圣母万人迷（修真穿越）上——吴子期</a>
+        </div>
+        <div class="article-abstract">修仙之圣母万人迷（修真 穿越）上——吴子期...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;29</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70231.html">修仙之圣母万人迷（修真穿越）下——吴子期</a>
+        </div>
+        <div class="article-abstract">修仙之圣母万人迷（修真 穿越）下——吴子期...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;13</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70171.html">炼器，我是专业的（修真）+番外——喵喵会隐身</a>
+        </div>
+        <div class="article-abstract">炼器，我是专业的（修真）+番外——喵喵会隐身...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;44</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70147.html">重生异世仙炼者（修真）上——元羽</a>
+        </div>
+        <div class="article-abstract">重生异世仙炼者（修真）上——元羽...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;86</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70146.html">重生异世仙炼者（修真）中——元羽</a>
+        </div>
+        <div class="article-abstract">重生异世仙炼者（修真）中——元羽...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;19</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70145.html">重生异世仙炼者（修真）下——元羽</a>
+        </div>
+        <div class="article-abstract">重生异世仙炼者（修真）下——元羽...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;19</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70073.html">重生之成神秘境（修真一）——艾樱南</a>
+        </div>
+        <div class="article-abstract">重生之成神秘境（修真 一）——艾樱南...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;54</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70072.html">重生之成神秘境（修真二）——艾樱南</a>
+        </div>
+        <div class="article-abstract">重生之成神秘境（修真 二）——艾樱南...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;10</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70071.html">重生之成神秘境（修真三）——艾樱南</a>
+        </div>
+        <div class="article-abstract">重生之成神秘境（修真 三）——艾樱南...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70070.html">重生之成神秘境（修真四）——艾樱南</a>
+        </div>
+        <div class="article-abstract">重生之成神秘境（修真 四）——艾樱南...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;10</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70069.html">重生之成神秘境（修真五）——艾樱南</a>
+        </div>
+        <div class="article-abstract">重生之成神秘境（修真 五）——艾樱南...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70068.html">重生之成神秘境（修真六）——艾樱南</a>
+        </div>
+        <div class="article-abstract">重生之成神秘境（修真 六）——艾樱南...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70067.html">重生之成神秘境（修真七）——艾樱南</a>
+        </div>
+        <div class="article-abstract">重生之成神秘境（修真 七）——艾樱南...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;11</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70063.html">我以为我是主角（修真）上——云禹尔</a>
+        </div>
+        <div class="article-abstract">我以为我是主角（修真）上——云禹尔...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;28</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70062.html">我以为我是主角（修真）下——云禹尔</a>
+        </div>
+        <div class="article-abstract">我以为我是主角（修真）下——云禹尔...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;14</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/70003.html">一大波前世后宫正在来袭（修真）——镜无邪</a>
+        </div>
+        <div class="article-abstract">一大波前世后宫正在来袭（修真）——镜无邪...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;17</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/69940.html">重生之吃货总是闲不住（修真）上——五斤</a>
+        </div>
+        <div class="article-abstract">重生之吃货总是闲不住（修真）上——五斤...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;40</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-07-02/69939.html">重生之吃货总是闲不住（修真）下——五斤</a>
+        </div>
+        <div class="article-abstract">重生之吃货总是闲不住（修真）下——五斤...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-07-02</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69793.html">重生之每天都在担心会和自己啪啪啪（修真）上——办小年</a>
+        </div>
+        <div class="article-abstract"> 文案： 文名误导向！本文又[真]名：《感情废神尊的追人技巧真尴尬》又名《看到文名宝宝尴尬症都犯了》又名《最后知道真相的我眼泪掉下来》 穿越种马男被自己的后宫背叛，险些神魂破灭，侥幸重生一回，变成了浑身都散...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;30</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69792.html">重生之每天都在担心会和自己啪啪啪（修真）下——办小年</a>
+        </div>
+        <div class="article-abstract"> 第49章：薛凡来 刚结丹的时候哪怕通体舒畅，因为根基不稳，也可以说是一个较为容易趁人之危的时候，太叔傲天自然是知道这点的，然而趁人之危对他而言则是锦上添花，来得正好。 所以当下太叔傲天就开始不停地攻击安清...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;15</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69677.html">山河万里月长明之CP小故事（基三修真）——阴川公孙蝶</a>
+        </div>
+        <div class="article-abstract"> 文案： 丐咩一生推，奈何花咩成了主流，西湖边的二少落了水没人救，西域的少侠迷了路。入了江湖不见江湖，出了江湖唯见你。所谓江湖，不过相逢一笑，或战或和。 无我，何为江湖？ 内容标签：游戏网游 仙侠修真 江湖...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69647.html">闲照录（修真灵异）——云卿</a>
+        </div>
+        <div class="article-abstract"> 文案： 花枝临水复临堤，闲照江流亦照泥。 千万春风好抬举，夜来曾有凤凰栖。 太清宗师兄与师弟的修行故事。手残脑洞大，缓慢更新。 慎： 1、本文为中国神话志怪背景，一应修行皆采撷于道家经卷内容，观者请先清空脑...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;15</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69606.html">道长唯我独尊（穿越基三修真）上——江南魂姑娘</a>
+        </div>
+        <div class="article-abstract"> 文案： 指路：本文的看点是，那个总是犯病的师门，其他可以无视【认真脸】 仙门是挺好，疯子满地跑。 【系统消息】您的好友[犯病的剑晗霜]已经上线。 剑晗霜：人不犯我，我不犯人。 画外音：可你犯病。 衣冠禽兽外表...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;29</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69605.html">道长唯我独尊（穿越基三修真）下——江南魂姑娘</a>
+        </div>
+        <div class="article-abstract"> 第63章：沿阳界副本五 藏宝图 &ldquo;因为要躲那些秃驴？&rdquo;张二牛见剑晗霜不说话，自己先猜起来了，&ldquo;不过那应该没必要躲这么多年吧？&rdquo; 剑晗霜笑得奸诈：&ldquo;因为在这里她天下无敌啊。&rdquo; 张...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69603.html">穿书之论如何掰直反派（修真）上——山穴来风</a>
+        </div>
+        <div class="article-abstract"> 文案： 打败主角的第一步从拆散主角的基友开始！ 于是游弋对着书中正义高冷的大师兄露出了一个腼腆的微笑。 大师兄好感度+2 大师兄获得未来反派的保姆称号。 大师兄发现了反派的真相受到不可估量的伤害。 &ldquo;小...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;27</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69602.html">穿书之论如何掰直反派（修真）下——山穴来风</a>
+        </div>
+        <div class="article-abstract"> 第三十三章：拳头 &ldquo;真是卑微的奢望呢，只可惜，你早就失败了。&rdquo; 游弋的表情淡淡的，甚至那笑意粗略看起来还带着温暖的意味&mdash;&mdash;当时在唐芋忻感受来，那双捏住自己脖颈的双手热得烫人，又冷的刺...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69593.html">天灵根真的不好吃（修真）上——二白东山</a>
+        </div>
+        <div class="article-abstract"> 文案： 这是一个花样作死撩汉不小心玩脱了踏入修真界的阮阳童鞋二十多年的唯物主义世界观遭到重塑，一不留神还顺手拯救了一下修真界的故事。 这个故事告诉我们人妖相恋是不会有好结果的，你拿他当恋人，他拿你做储备...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;22</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69592.html">天灵根真的不好吃（修真）下——二白东山</a>
+        </div>
+        <div class="article-abstract"> 第三十七章：再遇绑架 李阿姨知道自己在阮阳面前说话就跟放屁似的一点儿分量也没有，故意挑了个大家都在的时候，将老头子也请了过来，这才不急不缓，好似不经意般提出了这件事：&ldquo;阳阳啊，听说你要回D市？&amp;rdq...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;12</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69546.html">囚仙（修真）——小竹子君</a>
+        </div>
+        <div class="article-abstract"> 文案： 曾有云中帝君怒，一片山川化焦土。 &ldquo;你命中无子。&rdquo; 他不信，强行夺走生子丹。纵然男子结合违背天伦，也没有什么阻挡的了他云焱帝君。 可笑的是，顾念怀的，不是他的孩子。 渣攻，攻情商并不高，...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;25</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69523.html">仙娱制片人（修真）上——panther</a>
+        </div>
+        <div class="article-abstract"> 文案： 在这天才遍地走，神器灵药我没有的仙界，元华作为地球上两千年以来第一个飞升的修真者深表压力山大~ 幸好幸好！仙界娱乐圈刚刚发展，作为在华夏娱乐圈混了八十多年的资深人士，也许日子没有想象的那么糟糕？...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;17</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69522.html">仙娱制片人（修真）下——panther</a>
+        </div>
+        <div class="article-abstract"> 第四十五章 &ldquo;是的，凤麟仙视台。&rdquo; 天门子正了正身，接着道：&ldquo;不瞒您说，凤麟仙视台的孔台长与在下是多年好友，现在又快到了六十年一次的仙视台排位大比，但凤麟仙视台之前已经连续两期没有入围过...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69486.html">穿书之龙君在上（修真）上——山河故我</a>
+        </div>
+        <div class="article-abstract"> 文案： 多年以后，再有人问他。 你为何而来。 他笑。为一个人而来。 缘何成仙？ 他笑而不答，那人却不要脸的凑上他的耳朵，轻声道： 为了渡我。 世人都道：萧白仙君以身饲魔，以一己之身堕入龙君魔掌，拯救万民于水...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;53</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69485.html">穿书之龙君在上（修真）中——山河故我</a>
+        </div>
+        <div class="article-abstract"> 第46章：十只山河 楼启走在前面，萧白走在后面。 即使两个人都不说话，两人周围也散发出了一股异样的意味儿，更别提萧白，他现在觉得浑身不自在，尤其是某个难以言喻的地方。 他磨磨蹭蹭，努力将自己与楼启的距离拉...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;13</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69484.html">穿书之龙君在上（修真）下——山河故我</a>
+        </div>
+        <div class="article-abstract"> 第90章：三只胖球 屋内的空气渐渐升温起来，脖颈和锁骨处又是萧白的敏感点，他微微偏了偏头，仿佛这样便能阻止那种颤栗的快、感似的。 楼启没有继续下去，一只手隔着薄衫轻抚着他的脊背，沉声道：&ldquo;让我抱一会...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69482.html">绰影含流（修真）上——朱红银子</a>
+        </div>
+        <div class="article-abstract"> 文案： 中原有一个修仙望族名叫崇光阁，崇光阁有一名弟子，叫做唐骁汐，他并不是一个修为精湛的人，但是为人宽厚可亲，有着照顾他的女师傅以及地位颇重的师祖。唐骁汐下山任务途中收了个女弟子名叫做方浅浅，等回了...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;17</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-06-23/69481.html">绰影含流（修真）下——朱红银子</a>
+        </div>
+        <div class="article-abstract"> 第34章：唐骁汐在哪？ 身为父亲，风厉自然知道自己的女儿怎么了，这是她的病状开始恶化了。 风烨橙从来没有见过风点点这个样子，一时竟然呆愣住了，他以前一直以为这女人只会疯言疯语，顶多就是自己傻愣的笑，傻愣的...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-06-23</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-04-10/69817.html">师尊，您又想多了（修真）上——点天灯</a>
+        </div>
+        <div class="article-abstract"> 文案： 问：天道要泯灭本尊肿么破？在线等，挺急的。 答：抱紧主角金大腿 问：可是主角金大腿在本尊这儿肿么破？ 答：让主角抱你大腿。 于是桑梓恍然大悟。 &mdash;&mdash;徒儿，今日本尊见到一位容貌极好的美男子，...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-04-10</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;39</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-04-10/69816.html">师尊，您又想多了（修真）下+番外——点天灯</a>
+        </div>
+        <div class="article-abstract"> 第50章 此炼丹炉高约五米，炉敞口直颈，鼓腹平底丰满，呈釉白色，光润匀净，如脂似玉，双耳自然连结。炉身前后左右各镶嵌有一块拳头大小的红色焰石，焰石附近有明显的压印兽面纹。 &ldquo;喵喵喵？&rdquo; 啥玩意儿...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-04-10</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;20</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-04-10/69797.html">师弟在上（修真）上——宿水渔歌</a>
+        </div>
+        <div class="article-abstract"> 文案： 秦征被逐出师门二十年后，发现从小被自己欺负的师弟成了掌门。 想要重回师门的唯一方法就是回到过去跟师弟刷好感度。 不过只有十次机会。 看着自己用尽全力刷的好感度，一旦离开半年就一下子回到解放前就好想...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-04-10</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;18</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-04-10/69796.html">师弟在上（修真）下+番外——宿水渔歌</a>
+        </div>
+        <div class="article-abstract"> 第42章 秦征警觉的抬头看了看四周，看不到半个人影也感觉不到有任何动静。 不过秦夙总不会为了骗人说这种话。 想到刚刚那个修为跟秦夙都能匹敌的魔族，秦征的心里一阵发慌。 自己竟然在这么危险的地方逗留了这么久，...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-04-10</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-04-09/69264.html">重生之风华度（修真）——青衣成白</a>
+        </div>
+        <div class="article-abstract"> 文案： 本文题做风华度，故事俗套，狗血一地。所谓风华度，即为&ldquo;寤寐想风采，共度嘉年华&rdquo;。 美攻美受，强攻强受，非典型美强。 CP：白雪X陆荣华 内容标签：仙侠修真 青梅竹马 前世今生 恋爱合约 主角：...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-04-09</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;19</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-04-09/69247.html">重生之星辰剑履（修真）上——月影之影</a>
+        </div>
+        <div class="article-abstract"> 文案： 青羽山苏一尘少年成名，名动天下，只因结交了一个魔界好基友，重重误会下被废去修为逐出师门，更遭魔物围剿坠崖而亡。 六年后，他阴差阳错地魂返人间，而他的坑爹基友竟然也再次出现，接连残杀仙门中人，一切...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-04-09</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;32</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-04-09/69246.html">重生之星辰剑履（修真）下——月影之影</a>
+        </div>
+        <div class="article-abstract"> 第42章：帮手 苏雪镜过来的时候，见到温良，习惯地揉了揉他的头，&ldquo;听说你也进了回声谷，没事吧？&rdquo; &ldquo;没事，谢谢苏兄关心。&rdquo; 苏雪镜仍旧笑得如沐春风，只是在看到苏一尘背后的百炼青钢剑时，...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-04-09</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;11</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-04-09/69233.html">穿书之不准成魔（修真）上——御吃鸡</a>
+        </div>
+        <div class="article-abstract"> 文案： 一觉醒来，陆卓扬从现代穿越到小说《仙魔变》中。 在这里，他原本的设定是#被误会而坠入魔道最终殒命于男主角之手的大反派#。 但，也许是穿越机制出现了问题，小说中的情节没有一一出现。 男主角的设定也一并...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-04-09</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;32</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-04-09/69232.html">穿书之不准成魔（修真）中——御吃鸡</a>
+        </div>
+        <div class="article-abstract"> 第38章：冰岛 茫茫浓雾中，小渔船顺海流飘荡，上空燃着三朵莲花火，将渔船周围的昏灰勉力撕开。然而再远些就看不真切，仿佛除了渔船和海面上时不时摩擦而过的碎冰，一切都化作了虚无。若是心智不坚者，怕是在通往冰...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-04-09</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-04-09/69231.html">穿书之不准成魔（修真）下+番外——御吃鸡</a>
+        </div>
+        <div class="article-abstract"> 第74章：背叛 为什么偏偏是这个时候发作！ 寒意自丹田倾斜而出，翻滚叫嚣着席卷四肢百骸。身体里似乎有异物疯狂钻营了一番，随后便没了动静，是福是祸，此时也全然顾不得了。 周遭温度骤降，发丝眉梢眉都悄然结了霜...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-04-09</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-04-09/69190.html">道友，跟我走（道友，吹箫不？修真）——未玄机</a>
+        </div>
+        <div class="article-abstract"> 文案： &mdash;&mdash;西门吹箫，好！ &mdash;&mdash;好什么？ &mdash;&mdash;名字好。 （以上乃意味深长版本） 本文实际上讲的是一个术士，他穿了，遇上一个书生，唉呀妈呀，老喜欢了！ 可惜术士得修真才能保住性命...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-04-09</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;42</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/xianxia/2017-04-09/69142.html">穿书之师尊就爱吃软饭（修真）上——浅知</a>
+        </div>
+        <div class="article-abstract"> 文案： 扶道宗，《我本仙途》中的辅助系门派，只能跟着被扶道之人进阶而突破。读者送昵称软饭宗，一屋子可怜虫。 资深黑粉萧韧不幸穿进去，成了软饭宗的掌门人，全书最大反派魔尊的扶道人。 萧韧内心一万匹草泥马奔...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-04-09</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;修真</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;35</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div>
+        <div id="paging"><a title="Total record">&nbsp;<b>1290</b> </a>&nbsp;&nbsp;<a href="https://flymore.ga/book/xianxia/index.html">首页</a>&nbsp;<a href="https://flymore.ga/book/xianxia/index_2.html">上一页</a>&nbsp;<a href="https://flymore.ga/book/xianxia/index.html">1</a>&nbsp;<a href="https://flymore.ga/book/xianxia/index_2.html">2</a>&nbsp;<b>3</b>&nbsp;<a href="https://flymore.ga/book/xianxia/index_4.html">4</a>&nbsp;<a href="https://flymore.ga/book/xianxia/index_5.html">5</a>&nbsp;<a href="https://flymore.ga/book/xianxia/index_4.html">下一页</a>&nbsp;<a href="https://flymore.ga/book/xianxia/index_9.html">尾页</a></div>
+
+
+
+    </div>
+
+    <div class="layui-col-md4">
+
+        <div class="fly-panel" style="padding: 20px 0; text-align: center;">
+            <div class="layui-anim avatar"><a href="javascript:"><img alt="再賤就再見" src="https://flymore.ga/skin/default/images/avatar.jpg" style="width:120px; height:120px; border-radius:100%;"></a></div>
+            <h1>
+                <a href="javascript:" style="font-size: 24px">再賤就再見</a>
+                <i class="layui-icon layui-icon-male" style="font-size: 22px; color: #1E9FFF;"></i>
+            </h1>
+            <p style="color: #999999;margin: 8px">
+                <a href="mailto:iflymore@yandex.com" target="_blank" title="email"><i class="layui-icon layui-icon-email" style="padding-right: 5px;"></i> <span>联系我们</span></a>
+                &nbsp;<i class="layui-icon layui-icon-location"></i> <span>耽美 - 中国</span>
+            </p>
+            <p style="color: #999999;margin: 8px">為每一位到來的朋友，傳遞純真的夢想！</p>
+            <hr />
+            <div>
+                <a href="https://t.me/xbbchat" target="_blank" title="telegram"><i class="layui-icon layui-icon-release"  style="font-size: 32px;padding-right: 15px;"></i></a>
+                <a href="https://paypal.me/flymore/" target="_blank" title="paypal"><i class="layui-icon layui-icon-dollar" style="font-size: 32px;padding-right: 15px;"></i></a>
+                <a href="mailto:iflymore@yandex.com" target="_blank" title="service"><i style="font-size: 32px;" class="layui-icon layui-icon-dialogue"></i></a>
+            </div>
+        </div>
+
+        <dl class="fly-panel fly-list-one">
+            <dt class="fly-panel-title"><i class="layui-icon layui-icon-read"></i>  最新小説</dt>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-10-13/79229.html">异界（修真 穿越）下――夜陨</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-13</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-10-13/79228.html">异界（修真 穿越）中――夜陨</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-13</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-10-13/79227.html">异界（修真 穿越）上――夜陨</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-13</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-10-13/79220.html">重生之前对头（修真 五）――草草～</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-13</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-10-13/79219.html">重生之前对头（修真 四）――草草～</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-13</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-10-13/79218.html">重生之前对头（修真 三）――草草～</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-13</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-10-13/79217.html">重生之前对头（修真 二）――草草～</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-13</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-10-13/79216.html">重生之前对头（修真 一）――草草～</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-13</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-10-10/79079.html">意难平（修真）――日最野</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-10</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-10-01/78929.html">多谢尊神相搭救（修真）――墨白涅</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-01</span></dd>
+                    </dl>
+
+        <dl class="fly-panel fly-list-one">
+            <dt class="fly-panel-title"><i class="layui-icon layui-icon-read"></i>  推荐小説</dt>
+                    </dl>
+
+        <dl class="fly-panel fly-list-one">
+            <dt class="fly-panel-title"><i class="layui-icon layui-icon-read"></i>  熱門小説</dt>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2017-11-19/72659.html">手撕系统重生后（修真一）——风之克罗地亚</a> <span><i class="layui-icon">&#xe60e;</i> 2017-11-19</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2017-04-08/68773.html">天才狂少的男妻（修真1）——风雅</a> <span><i class="layui-icon">&#xe60e;</i> 2017-04-08</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2017-03-26/58767.html">重生之师父不作死（修真一）——曲偕</a> <span><i class="layui-icon">&#xe60e;</i> 2017-03-26</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2017-10-21/72186.html">重生之嫁衣系统（修真一）——伯夏</a> <span><i class="layui-icon">&#xe60e;</i> 2017-10-21</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-10-13/79216.html">重生之前对头（修真 一）――草草～</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-13</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-02-05/74118.html">重生之江公子今天不开车（X冷淡治疗手册 修真 一）――发呆的樱桃子</a> <span><i class="layui-icon">&#xe60e;</i> 2018-02-05</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2017-07-02/70457.html">九世养成（穿越修真一）——繁丧三千</a> <span><i class="layui-icon">&#xe60e;</i> 2017-07-02</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2017-04-09/69128.html">重生之魔道祖师（修真新修版一）——墨香铜臭</a> <span><i class="layui-icon">&#xe60e;</i> 2017-04-09</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2018-02-02/74095.html">机械男神（穿越 修真）上――厉九歌</a> <span><i class="layui-icon">&#xe60e;</i> 2018-02-02</span></dd>
+                        <dd>[修真]<a href="https://flymore.ga/book/xianxia/2017-10-09/71990.html">无名之火（修真末世）上——木叶籽</a> <span><i class="layui-icon">&#xe60e;</i> 2017-10-09</span></dd>
+                    </dl>
+    </div>
+
+
+    </div>
+    </div>
+
+    <div class="fly-footer">
+    <p>Copyright &copy; 2013-<script type='text/javascript'>var creditsyear = new Date();document.write(creditsyear.getFullYear());</script> <a href="https://www.flymore.ga">丹樂網</a></p>
+    <p class="layui-hide-xs">本站所有内容全部来源于互联网，版权归属于原作者，如果对作品内容、版权等方面有质疑，或对本站有意见建议请发送Email至<a href='mailto:iflymore@yandex.com'>iflymore@yandex.com</a>，感谢您的合作与支持。</p>
+</div>
+
+<a href="#" id="back-to-top"><i class="layui-icon" style="font-size: 36px;">&#xe604;</i></a>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.js"></script>
+<script src='https://flymore.ga/skin/default/js/lang.min.js'></script>
+<script src="https://flymore.ga/skin/default/js/site.min.js"></script>
+    </body>
+</html>
