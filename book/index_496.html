@@ -1,0 +1,2401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="webkit" name="renderer">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="telephone=no" name="format-detection">
+    <title>文库 - 丹樂文庫 - 丹樂網 - 完結耽美文珍藏書庫</title>
+    <meta content="耽美,耽美文,耽美小说,bl,bl小说,轻酷,丹乐,耽美小说,同志小说" name="keywords">
+    <meta content="文荒不是病，一荒要人命。丹乐网拥有大量耽美完结文、连载文、微小说可供阅读。每篇完结文140字良心简介，不怕选择困难;精准标签，不怕踩雷。" name="description">
+    <link href="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/css/layui.css" rel="stylesheet">
+<link href="https://flymore.ga/skin/default/css/site.min.css" rel="stylesheet" />
+<link href="https://flymore.ga/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+<div class="layui-bg-black fly-header">
+    <div class="layui-container">
+        <a class="fly-logo" href="https://flymore.ga/">
+            <img alt="qcold" src="https://flymore.ga/skin/default/images/logo-q.png">
+        </a>
+        <ul class="layui-nav fly-nav" lay-filter="">
+            <li class="layui-nav-item layui-hide-xs">
+                <a href="javascript:"><i class="layui-icon layui-icon-fire"></i> 排行榜</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="https://flymore.ga/html/good/">推荐排行</a></dd>
+                    <dd><a href="https://flymore.ga/html/hots/">总点击榜</a></dd>
+                    <dd><a href="https://flymore.ga/html/year/">年点击榜</a></dd>
+                    <dd><a href="https://flymore.ga/html/season/">季点击榜</a></dd>
+                    <dd><a href="https://flymore.ga/book/">新鲜上线</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item layui-hide-xs">
+                <a href="https://flymore.ga/book/"><i class="layui-icon layui-icon-fire"></i> 分类</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="https://flymore.ga/book/future/">末世机甲</a></dd>
+                    <dd><a href="https://flymore.ga/book/modern/">现代都市</a></dd>
+                    <dd><a href="https://flymore.ga/book/antiquity/">古风雅韵</a></dd>
+                    <dd><a href="https://flymore.ga/book/rebirth/">穿越重生</a></dd>
+                    <dd><a href="https://flymore.ga/book/fantasy/">玄幻网游</a></dd>
+                    <dd><a href="https://flymore.ga/book/xianxia/">仙侠修真</a></dd>
+                    <dd><a href="https://flymore.ga/book/terror/">灵异神怪</a></dd>
+                    <dd><a href="https://flymore.ga/book/same/">耽美同人</a></dd>
+                    <dd><a href="https://flymore.ga/book/other/">耽美其他</a></dd>
+                    <dd><a href="https://flymore.ga/book/emotion/">酷儿话题</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item layui-hide-xs">
+                <a class="donate" href="javascript:"><i class="layui-icon layui-icon-diamond"></i> 赞助我们</a>
+            </li>
+        </ul>
+        <ul class="layui-nav fly-nav-user">
+            <li class="layui-nav-item">
+                <a href="javascript:" id="search"><i class="layui-icon layui-icon-search" style="font-size: 24px;"></i></a>
+            </li>
+            <script src="https://flymore.ga/e/member/login/loginjs.php"></script>
+        </ul>
+    </div>
+</div>
+
+<div class="fly-panel fly-column layui-hide-sm layui-show-xs menuBar" style="display: none">
+    <div class="layui-container">
+        <ul class="layui-clear">
+            <li><a href='https://flymore.ga/book/future/'>科幻</a></li>
+            <li><a href='https://flymore.ga/book/modern/'>现代</a></li>
+            <li><a href='https://flymore.ga/book/antiquity/'>古代</a></li>
+            <li><a href='https://flymore.ga/book/rebirth/'>穿越</a></li>
+            <li><a href='https://flymore.ga/book/fantasy/'>玄幻</a></li>
+            <li><a href='https://flymore.ga/book/xianxia/'>仙侠</a></li>
+            <li><a href='https://flymore.ga/book/terror/'>灵异</a></li>
+            <li><a href='https://flymore.ga/book/same/'>同人</a></li>
+            <li><a href='https://flymore.ga/book/other/'>其他</a></li>
+            <li><a href="https://flymore.ga/book/emotion/">玩觅 <span class="layui-badge-dot"></span></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="layui-container">
+    <div class="layui-col-md7" style="display: none;position: fixed;background-color: #515a6e; opacity: 0.8;z-index: 10;">
+        <div class="fly-panel" id="search-bar"  style="background-color: #515a6e;padding: 20px 20px; text-align: center;">
+            <form action='https://flymore.ga/e/search/index.php' class="layui-form" method='post'>
+                <input class="layui-input" id='words' name='keyboard' placeholder="检索功能已停止使用" style="width: 70%;display: inline-block" type="text">
+                <input name="show" type="hidden" value="title,writer,newstext"/>
+                <input name="tempid" type="hidden" value="1"/>
+                <button class="layui-btn" lay-filter="searchSubmit" lay-submit style="width:20%;display:inline-block">检索</button>
+            </form>
+            <div class="fly-tags" style="margin-top: 10px"><a href="https://flymore.ga/e/tags/?tagid=413" target="_blank">穿越</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=3950" target="_blank">重生</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=1638" target="_blank">强强</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4192" target="_blank">甜文</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=2718" target="_blank">生子</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4107" target="_blank">包子</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4216" target="_blank">都市</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4187" target="_blank">修真</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4181" target="_blank">种田</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4158" target="_blank">娱乐圈</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4102" target="_blank">系统</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=1660" target="_blank">年下</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4193" target="_blank">灵异</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=25" target="_blank">同人</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=306" target="_blank">男人</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4248" target="_blank">豪门</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=2449" target="_blank">HE</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4005" target="_blank">宫廷</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4273" target="_blank">空间</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4199" target="_blank">末世</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4554" target="_blank">1V1</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=370" target="_blank">网游</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=2442" target="_blank">自由自在</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=3975" target="_blank">架空</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4285" target="_blank">励志</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4250" target="_blank">异能</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4124" target="_blank">异世</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=412" target="_blank">时空</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4318" target="_blank">快穿</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=427" target="_blank">哥哥</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=91" target="_blank">少年</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4272" target="_blank">机甲</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=385" target="_blank">游戏</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4369" target="_blank">网配</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=6883" target="_blank">长生千叶</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4105" target="_blank">莫晨欢</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=6617" target="_blank">叶忆落</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=4471" target="_blank">虐恋</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=129" target="_blank">幸福</a> &nbsp; <a href="https://flymore.ga/e/tags/?tagid=5082" target="_blank">颜若优雅</a></div>
+        </div>
+    </div>
+    <div class="layui-row layui-col-space15">
+
+
+    <div class="layui-col-md12">
+        <div class="home-tips">
+            <i class="layui-icon layui-icon-speaker" style="float:left;line-height:17px;"></i>
+            <div class="home-tips-container">
+                                <span style="color: red;padding-left: 5px;"><a href="https://flymore.ga/book/emotion/2019-10-04/87354.html" target="_blank">舍不得说再见，但已到离别时</a></span>
+                                <span style="color: red;padding-left: 5px;"><a href="https://flymore.ga/book/emotion/2018-01-06/73604.html" target="_blank">书友必看：打开追梦网的正确姿势</a></span>
+                            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md8">
+        <!--列表开始-->
+        <div class="fly-panel">
+            <div class="fly-panel-title fly-filter">
+                <span class="layui-breadcrumb" lay-separator=">">
+                  <a href="https://flymore.ga/index.html">首页</a>&nbsp;>&nbsp;<a href="https://flymore.ga/book/">文库</a>
+                </span>
+            </div>
+        </div>
+        <div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27260.html">喜欢你就欺负你——宇宙</a>
+        </div>
+        <div class="article-abstract">第一章 <br /><br />
+小攻日记 <br /><br />
+10月7日 晴 <br /><br />
+今天，班里新来了一个小朋友，他一定是转学生。本来我是没想理他的，可是做完早操进教室时他竟然踩到了我的脚。 <br /><br />
+白白的鞋子上一个大黑脚印！我非常生气的把他推倒在地上，要不是...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27259.html">同栖关系——叶小树</a>
+        </div>
+        <div class="article-abstract">文案：&ldquo;什么？病危？&rdquo; 忽然接到老妈病重的消息，让驻伦敦特派记者徐竞文匆匆收拾行李、自动请调回国，没想到，这一切 <br /><br />
+居然是场骗局？！这下可好，徐竞文不但回不了英国，还被派去跑龙蛇杂处的社会线。...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/terror/2017-02-13/27257.html">新鬼——西伯利亚羽扇仙</a>
+        </div>
+        <div class="article-abstract">简介：唐闻道何其有幸，在挂&amp;hellip;&amp;hellip;不，见义勇为牺牲了七天之后被热血青年教师涂桦当作小偷，并在有关部门协调下签订了不平等协议。一六一国际儿童节后，本城的天气已经炎热得十分可观，中午和盛夏基本没有...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;灵异</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;14</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27258.html">极光之海——李阿夸</a>
+        </div>
+        <div class="article-abstract">文案：每个人的心里，都有一个过去。这个过去与现在、未来相互重叠，使得人生有了不同的变化和选择。故事的主人公叫沈方夏，是个刚到瑞典的交换学生。第一天，他就被分配到了一个怪异的寄宿家庭中，走进了全是秘密的...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27256.html">妖魔群舞+番外——幺妖灰</a>
+        </div>
+        <div class="article-abstract">文案：三界，六道，往生，轮回。除魔师，阴阳路，上至碧落下黄泉。无灵异分类，又不算恐怖，咱其实很想写得恐怖点&amp;hellip;&amp;hellip;亲耐滴小邪画的，第一次画封面画得很认真！！！就是狗血乐陶陶！！！推荐她的文，很...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27254.html">扭转寂寞的力道上——默默竹</a>
+        </div>
+        <div class="article-abstract">文案：一个人是孤单。两个人不知相爱，那是寂寞。昔日同窗好友的追缉，如今已为相爱的人的背叛。他想要的不过是平凡，然而那些东西却遥不可及。屈服和自由之间，他该何去何从？而他和他和他&amp;hellip;&amp;hellip;他们究竟...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27255.html">平行之骨+番外——枫糖样</a>
+        </div>
+        <div class="article-abstract">文案：&ldquo;我会守护你。&rdquo;伊刚是这么对时向荔说可又是数年之后，亲手推他入了死亡的深渊爱，如梦初醒，却只剩无奈麻木中邂逅一个叫关镜月的少年宛然就像是死去的时向荔尽管知道他不是，不是他那死去的哥哥可...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;4</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27252.html">王的银狐（穿越）——淡淡微风</a>
+        </div>
+        <div class="article-abstract">简介：他&mdash;&mdash;现任王尚古连，桀骜不驯但又及其英明帝王，拥有无尽的财富和权利，一心只想统一各国他&mdash;&mdash;修行千年的银狐，入世只为寻找世间罕见的灵果，能早日位列仙班命运的安排，当他遇到他，一...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27253.html">扭转寂寞的力道下——默默竹</a>
+        </div>
+        <div class="article-abstract">1.他从美国找来了权威医师替我做检查，然后开了零零总总的药，里头还有抗忧郁剂，数量不少。我是稍微郁闷一点，可并没有严重到需要吃药解决，于是我拒绝吃药。鸿麒天奈何不了我，和医师商量之下，便删除了那些药。「...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27251.html">偷吻甜心老师上——艾尚轩</a>
+        </div>
+        <div class="article-abstract">文案：上官崇和杨冰之子上官烨的爱情路程，温馨，深情，搞笑，小虐。上官烨，精雕般的面孔，继承了两个爸爸的优良基因，漂亮的双眸总是闪烁着智慧的光芒，举手投足间展现他迷人的气质。颜秋， 上官烨的老师 白皙清秀...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27250.html">偷吻甜心老师下——艾尚轩</a>
+        </div>
+        <div class="article-abstract">055.花痴女&ldquo;我是高三.三班的凌雪，你叫什么名字？&rdquo;那个女生虽然长的清纯性格却十分的开朗，她受不了车里低气压的气氛，没话找话的和金圣雨搭讪。金圣雨想要拿记事本回答她的问题，可是他偏偏忘记带了，金...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27249.html">献祭——风藏音</a>
+        </div>
+        <div class="article-abstract">楔子「将军，一线电话，总统正在线上等您。」手里拿著电话的上尉看向身边军服笔挺的麦克贝尔将军。麦克贝尔微微发白的双眉明显聚拢起来，在额间压出比脸上皱纹更深的纹路。他似乎没有接过电话的意思。「将军。」上尉...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27248.html">伯乐——残焱</a>
+        </div>
+        <div class="article-abstract">楔子我们是深海之中的鱼。只能靠着那么一点微弱的光，流过身旁的气味，以及那么一点滑腻的触感来盲目的找寻着对象。李冀杰非常的紧张。男人的吻不停的落在他的脸上、脖子上。这是他第一次跟男人做爱，而这男人跟他还...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27247.html">凤武山故事——成虫</a>
+        </div>
+        <div class="article-abstract">太原城第 1 章山西太原城外约100里处，西凤村陆家正厅。此刻陆家老爷陆仲金正在和他的客人轻声聊着，看得出他正在极力的想说成什么，可那客人却不置可否。到了这会，那陆仲金几乎已经死了心，虽然他早就听说想让这个...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27246.html">他和他的故事+番外——千年九尾</a>
+        </div>
+        <div class="article-abstract">第一章：梦醒时分&ldquo;天街小雨润如酥，草色遥看近却无&amp;hellip;&amp;hellip;&rdquo;窗外的雨淅淅沥沥地打在整个世界，路上的行人面无表情，浑浑噩噩而又匆匆忙忙的穿梭忙碌着，这一切映在董雨的眼中，毫无感觉。左手拿...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27244.html">远离伊甸园1、2——江上冴子</a>
+        </div>
+        <div class="article-abstract">一繁花乐园<br /><br />
+第一话<br /><br />
+情敌出现！<br /><br />
+&quot;年纪小的男人和年纪大的女人&quot;静谧的教室里只有免削铅笔干涩的声音回响着。我负责监考实力测验，正坐在讲桌前面，缓缓地环视教室内的学生。所有的学生都埋首于白色的考卷中认真作答...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27245.html">暴君+番外——天使喵</a>
+        </div>
+        <div class="article-abstract">第 1 章天朝二百五十三年，靖帝十六年，天降大旱，时靖帝残虐，荒淫无道，百姓困苦，民不聊生。各地属国蠢蠢欲动，四方诸侯招兵买马，无不意欲逐鹿中洲，将要拉开一场天下大乱的帷幕。眼看着，这天朝的气数，似乎是要...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;10</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27243.html">远离伊甸园3、4——江上冴子</a>
+        </div>
+        <div class="article-abstract">三 圣诞乐园<br /><br />
+第一话 吟颂圣歌的野兽--圣诞晚会的奇迹 <br /><br />
+&quot;圣诞夜的羊和牧羊人&quot; <br /><br />
+第一章 <br /><br />
+礼堂里的风琴奏出悠远的圣歌。琴声比平日做礼拜时更有深度，那种感觉彷佛直入人心且萦回不散。 <br /><br />
+--好棒啊，冰山。 <br /><br />
+我目不...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27242.html">远离伊甸园5、6——江上冴子</a>
+        </div>
+        <div class="article-abstract">五 春风乐园<br /><br />
+第-話 驚心動魄的耶穌受難日 <br /><br />
+『我再也不睡這裡了！』 <br /><br />
+第一章 <br /><br />
+視線一轉，便可以從教室的窗戶看到綻放的櫻花。淡粉色的花瓣微微映著紅彩，非常美麗。 <br /><br />
+想必不久之後就會滿園綻放了吧？ <br /><br />
+我作躍不...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;12</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27241.html">远离伊甸园7、8——江上冴子</a>
+        </div>
+        <div class="article-abstract">七 夏日风暴<br /><br />
+第一話<br /><br />
+野獸加藤的禁閉生活！？ <br /><br />
+--邪惡王子秋山的挑戰 <br /><br />
+&quot;老師，你愿意現在當著我的面下跪認錯？&quot; <br /><br />
+第一章 <br /><br />
+徽衷诔抗庵械牟世L玻璃鮮明地浮顯出來，彷佛將人們的心靈整個滌淨了一般。 <br /><br />
+風琴聲響...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;17</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27240.html">远离伊甸园之11、12——江上冴子</a>
+        </div>
+        <div class="article-abstract">十一 避暑地乐园文案： <br /><br />
+经济大流氓加藤组的幺儿，名校私立天王寺学院有史以来最强的不良少年加藤雅臣，因为和大他七岁的娃娃脸老师芹泽的爱人关系曝光，结果惨遭禁足。虽然原先敌对的邪恶王子秋山「痛」改前非，但...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27238.html">远离伊甸园15、16——江上冴子</a>
+        </div>
+        <div class="article-abstract">十五 野茨乐园 <br /><br />
+&ldquo;喂，小芹，再来一碗！&rdquo; <br /><br />
+一大早就食欲全开的加藤活力充沛的说起，将碗递了过来。 <br /><br />
+&ldquo;啊？哦，要再来一碗？&rdquo; <br /><br />
+坐在加藤旁边细嚼慢咽的我赶紧接过加藤的饭碗。 <br /><br />
+加藤雅臣...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27239.html">远离伊甸园13、14——江上冴子</a>
+        </div>
+        <div class="article-abstract">十三 醒觉乐园<br /><br />
+第一话　美丽女医生．玲奈子的泄气话！？ <br /><br />
+「每次见到芹泽先生，我就产生强烈的自我厌恶感。」 <br /><br />
+「--雅臣！」 玲奈子小姐清澈的声音在石造的玄关上清亮地回响着。 <br /><br />
+「哟！玲奈子。」 <br /><br />
+加藤以不像...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27237.html">爱捡骨的小妖狐+番外——淮翼</a>
+        </div>
+        <div class="article-abstract">第一章「青云山」是有名的仙山，人人传说有狐仙住在那儿；青云山的确住了很多的狐狸，不过大都是狐妖，修成仙道的还没几只。而这满山遍野的妖狐、小狐狸、狐仙什么的，其实都是一家子，且皆同&amp;hellip;&amp;hellip;「父」...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27235.html">离落+番外——谭谭</a>
+        </div>
+        <div class="article-abstract">文案：既然你这么说，那么，我们就此别过。&ldquo;本宫虽为男子，但是既然能身居后位，自然不是身无长处。&rdquo;&ldquo;先下朝政由皇叔摄政王殷夜把持，皇上登基月余，都没上过朝呢&amp;hellip;&amp;hellip;&rdquo;&ldquo;本...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27236.html">九歧之沽御尔雅+番外——杳遥</a>
+        </div>
+        <div class="article-abstract">内容性文案：九歧=九重天&amp;岐山冰原沽御尔雅是一株生于岐山冰原长在九重天的银色翦祁文学性文案：沽御尔雅，公子温文尔雅？温柯字楚楚，真真楚楚可怜？当小气腹黑攻遇上毒舌腹黑攻，且看谁主浮沉&amp;hellip;&amp;hellip;内容...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27233.html">年少无知——茶兔</a>
+        </div>
+        <div class="article-abstract">文案：面瘫攻x忠犬受&amp;hellip;&amp;hellip;不想写文案。内容标签： 花季雨季主角：林棋，伍夏 ┃ 配角：潘洛阳第 1 章在我还小的时候，曾经跟家人一起去过海边。那是在北国的岛湾之处，一个安静又美丽的小城。我清楚地记得...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27234.html">北美·高中毕业生——山阳河</a>
+        </div>
+        <div class="article-abstract">内容标签：异国奇缘 前世今生 三教九流 种田文搜索关键字：主角：史建瑭，高行周 ┃ 配角：李存勖，李存审 ┃ 其它：美国，LGBT（恋人），洗心革面&amp;hellip;&amp;hellip;第1章：她是LESBIAN（女同性恋）紫色背心的女孩单手...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;30</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/fantasy/2017-02-13/27232.html">洛神赋（网游多攻）上+番外BY一懿</a>
+        </div>
+        <div class="article-abstract">文案：洛神转世在N年后的中国，因继承着上辈子的容貌，所以被严重怀疑不是自家小鬼的父母抛弃，被人捡走，混进了修真者的地盘&amp;hellip;&amp;hellip;X年后，在网游中混起了争霸，刚上游戏时，因比NPC&ldquo;洛神&rdquo;美，...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;玄幻</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;11</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27230.html">偷情——阿单</a>
+        </div>
+        <div class="article-abstract">第1章华威早上起来的时候，瑜颖还在被窝里，棉被掀开的地方，身体接触到冷空气，不安地缩了缩，似乎想钻进床垫里，华威于是帮他拉好棉被，盖实了才去盥洗。等华威穿好西装、打好领带，瑜颖还在睡，床柜上的手机响了好...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/fantasy/2017-02-13/27231.html">洛神赋（网游多攻）下BY一懿</a>
+        </div>
+        <div class="article-abstract">第三十五章&ldquo;是&amp;hellip;&amp;hellip;啊！好久&amp;hellip;&amp;hellip;不见！巧儿&amp;hellip;&amp;hellip;&rdquo;如卡带的录音机，华月此刻发出的声音竟是沙哑的不成调子，那声音中包含了太多太多的情感，让以为本来自己可以再次看...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;玄幻</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27229.html">终点站——小步</a>
+        </div>
+        <div class="article-abstract">属性分类：现代／都市生活／未定／正剧关键字：李彦盛 　陈宇 　乐团「你是马里亚纳海沟，我是飞碟。」唯有你的站别，才是我的停靠站。第1章PEOPLE新专辑「梧桐花」双周各大唱片行夺冠，见证实力近年唱片市场不景气，...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27228.html">挂着钥匙的男人+番外——不眠飞行</a>
+        </div>
+        <div class="article-abstract">文案：同居两年的城和林，由于性格上的缺陷，两人一直缺乏交流。对彼此的过去和内心并不过问，林对城有种偏执的占有欲，但城懒散的样子令他无所适从。而在宠物猫小山的介入后，两人关系中似有似无缺失的部分开始填满...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27226.html">喵喵爱上我下——阿措</a>
+        </div>
+        <div class="article-abstract">第二十七章：丑八怪的情愫潘神身后的女人们全都匍匐在雷克斯的脚下，隐藏在树林中的女妖们也纷纷冒了出来，有尖耳的精灵还有其他的林妖&amp;hellip;&amp;hellip;只一会儿功夫，雷克斯身边就围满了各色女妖。乌鸦看了看身边的...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;4</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27227.html">喵喵爱上我上——阿措</a>
+        </div>
+        <div class="article-abstract">文案：落泊成猫的魔鬼，意外成神的少年，时常脸红的乌鸦，无尽转生的巫女&amp;hellip;&amp;hellip;几个本来毫不相干的人却在今夏因为一个玩笑结成伙伴，开始了一场冒险旅行&amp;hellip;&amp;hellip;作品相关关于轻小说轻小说是近些年...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27225.html">三千世界鸦杀（前传第一、二部）——津守时生</a>
+        </div>
+        <div class="article-abstract">第一部 拉菲之末裔前言好累呀，老实说，好久～～没有尝试过这么狠的熬夜了！不过虽然累的要死，思维却乱七八糟的非常活跃。因为太兴奋。在最后嘟嘟差一点就想除了前言以外，再洋洋洒洒的写上他一篇读后记来，不过被馆...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27224.html">三千世界鸦杀第1、2部——津守时生</a>
+        </div>
+        <div class="article-abstract">第一部<br /><br />
+第一章当最新前来基地就任的大尉在副官的伴随下出现的时候，为了迎接他而聚集起来的三个小队长目瞪口呆地凝视着对方，几乎是靠着反射性才勉强完成了敬礼动作。<br /><br />
+就算是曾经三度获得银河联邦宇宙军第一等的阿...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27223.html">三千世界鸦杀第3、4部——津守时生</a>
+        </div>
+        <div class="article-abstract">第三部第一章宇宙港的构造，除了规模和检疫室以外，与普通的机场没有什么太大的区别。巴米利恩星的宇宙港，只有首都卡马因这一处而已。但尽管如此，这里的一天也只有一趟客机和货机起落。这已经足够说明这里到底有多...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27222.html">三千世界鸦杀第5、6部——津守时生</a>
+        </div>
+        <div class="article-abstract">第五部Part 1 <br /><br />
+根据深夜进行的紧急精密检查的结果来看，路西法多.奥斯卡休塔被判断为脑部没有异常。所以在特别任务的第二天清晨，他就接到了要他前往司令室复命的命令。报告由担任他的辅佐的梅莉莎.兰格雷大尉代为进...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27221.html">三千世界鸦杀第7、8部——津守时生</a>
+        </div>
+        <div class="article-abstract">第七部     <br /><br />
+就连和医院有关的人士，平时也很少把银河联邦宇宙军军立行星巴米利欧&amp;middot;卡马因市医院这个正式的名称挂在嘴边。 <br /><br />
+一般来说大家都称这里是军医院或者卡马因市军医院。这里的绝大部分患者，都是隶属...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27220.html">三千世界鸦杀第9、10部——津守时生</a>
+        </div>
+        <div class="article-abstract">第九部<br /><br />
+感觉得到,有谁把手轻轻地放在了靠右侧躺着的自己的左肩上.&ldquo;起来吧,卡加.己经到时间了哦.&rdquo;那个人以安稳而柔和的口气呼唤着.那低沉而深邃的声音,听起来是又舒适,又安心.一边想着这个声音不太适合做...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;4</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27219.html">三千世界鸦杀第11、12部——津守时生</a>
+        </div>
+        <div class="article-abstract">第十一部第一章 <br /><br />
+如果要用一句话来形容卡马因都市警察机动保安部部长斯诺里&amp;middot;温塞特的印象的话，十个人里有十个人都会说是&rdquo;巨汉&rdquo;吧？ <br /><br />
+身高一百九十厘米，现在的体重是一百五十公斤。手粗腿粗，...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27218.html">三千世界鸦杀第13、14部+番外——津守时生</a>
+        </div>
+        <div class="article-abstract">文案：BARMILION是一颗百分之九十以上的居民都来自地球系。路的边境行星之一，即使是作为一颗连假想敌都没有。经济上也毫无价值的行星，首都KAMAIN驻守的15000名银河联邦军宇宙军陆战部队军人依然显得配备不足，将这...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;19</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27216.html">乱花溅玉（穿越多攻）上——硕烁</a>
+        </div>
+        <div class="article-abstract">文案：我叫硕果儿，与历史上千千万万的同胞英雄一样&mdash;&mdash;穿越了！呜~，可是很衰。刚醒来便与狼搏斗，又遭美人非礼，还受牢狱之灾。为啥？狐狸帅哥告诉我：吓！我竟然抢他们宫主的人！呜~，不是我干的啊，谁...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27217.html">三千世界鸦杀第15部+番外——津守时生</a>
+        </div>
+        <div class="article-abstract">虽然对于驻扎在卡马因基地的大部分士兵而言，九月都不是什么值得特别提起的月份，但是对于一部分隶属于特殊兵种的部分士兵来说，却是让人倍感郁闷的月份。「关于战斗技能强化月期间&mdash;&mdash;」来到军医院外科病...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27215.html">乱花溅玉（穿越多攻）下——硕烁</a>
+        </div>
+        <div class="article-abstract">第四十五章：遭受强迫我被按入床铺之中，深深的陷入床里。他一手捂住我的嘴，堵住我开口的惊呼，俯身压住我的挣扎，一手快速的解掉衣衫，露出白皙却精壮的胸膛。我惊恐的看着他，使劲去掰他的手。将衣衫扔到地上，他...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27214.html">欢喜禅·豢郎BY一步莲华</a>
+        </div>
+        <div class="article-abstract">属性分类：古代、宫廷江湖关键字：龙涎、皇甫烈、冷云城角引大漠之边，罗蚩国，王宫。风，夹带来一丝血腥的香甜。怀中人的脸却因为那轮圆妖异的月而变得魔魅撩人。微风拂动帘幕，仿佛在这样的夜色中，有着一双无形的...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27212.html">重生之冒牌总裁+番外——君默言</a>
+        </div>
+        <div class="article-abstract">文案：第一卷：尼尔再一次睁开眼就看见了那个满眼冰冷的男人&mdash;&mdash;伊浩！他是夏家的家奴，却坐拥夏家江山。那个杀死原本夏岑的男人会是他么？他表面天真，却暗藏深沉伊浩第一眼看见他，就瞥见了那眼底深处的...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;13</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27213.html">G男孩之梅花——骆无</a>
+        </div>
+        <div class="article-abstract">文案：为了逃避结婚，他带着行李义无反顾地离开了家乡，来到人生地不熟的北方城市。他以为接纳自己的人不过也是为了找个相伴终老的朋友，没想到，他却是&mdash;&mdash;同志！他早该怀疑的，为何一个男人长发披肩，美...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;4</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27211.html">我的主——☆涅槃重生☆</a>
+        </div>
+        <div class="article-abstract">文案：方辉，一个普通到几乎是没有任何能力的人，但是从小时候开始就一直在做一个梦，梦中有人叫着自己。而终于有一天在方辉请假回家的路上，撞到了一个人。然后那人开口说：&ldquo;我的主&amp;hellip;&amp;hellip;&rdquo;内...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27210.html">黑色罂粟（修改版）上——唐娜</a>
+        </div>
+        <div class="article-abstract">简介：爱上一个残忍又温柔的男人。爱上一个天使的缺点。无望和救赎，他们一同走进地狱之门。内容标签：强强黑帮情仇契约情人西方罗曼搜索关键字：主角：邱寒，简浩泉┃配角：┃其它：黑帮，养成，斯德哥尔摩症候群。...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27209.html">黑色罂粟（修改版）下——唐娜</a>
+        </div>
+        <div class="article-abstract">14.1游戏的前奏浩泉和温寿在尼泊尔边境已经消耗了三天。两个人都没有提及去首都加德满都的事情，其实浩泉很想从温寿口里套出些信息，关于邱寒的近况。不过，现在如果显得急功近利，势必会引起温寿的反感。两个互相利...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;4</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/fantasy/2017-02-13/27208.html">网游之雪落迁徊——小光</a>
+        </div>
+        <div class="article-abstract">文案：习惯玩网游的人都知道，医生、法师与弓都是抢怪的高手，他们不但有远距离的攻击技能，更有无限的瞬发普攻，害得近战职业在做任务的时候，都只能跟在他们的屁股后面嚎嚎叫，不过他们也有一个致命弱点，那就是不...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;玄幻</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27206.html">尚秋（穿越）——昨日未央</a>
+        </div>
+        <div class="article-abstract">文案：这是一个毫无疑问的狗血文&amp;hellip;&amp;hellip;哇哈哈纯情穿越少年遇到了皇帝的男宠，擅弹唱的优伶男子，倾慕之，依赖之，爱之。为了能拥有保护心上人的力量，少年逼自己成长成熟。他的世界里只有一个阿秋，为了对...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27207.html">情迷俏侍从+番外——猫腻和尚</a>
+        </div>
+        <div class="article-abstract">文案：他，一介书生，冒险入宫只为救人一命。他，天之骄子，性格古怪不曾落入情网。绝对没有交集的他与他。他们之间的相遇、相识、相知，爱恨情仇，又谱出了怎样悲伤与欢喜的恋歌呢？历尽千辛万苦寻求到真爱的他们，...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;4</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27205.html">补习班上——榊原茜</a>
+        </div>
+        <div class="article-abstract">文案：黑幕业界速成班。内容标签：花季雨季 青梅竹马 欢喜冤家搜索关键字：主角：叶小倾，龙非 ┃ 配角：方之晔，万俟彰，卓頠 ┃ 其它：T大1故事是从大学一年级的新年开始的。元旦三天连休，叶小倾一直都猫在家里。...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27204.html">补习班下——榊原茜</a>
+        </div>
+        <div class="article-abstract">12要打到格斗技和短跑都水准超班的龙小非同学其实很难，在他当机立断拔腿就逃的时候更是mission impossible。龙非的想法很简单，被女生用拳头打可以，用器械则绝对不行。角落里等着偷拍的相机算是附属发现，因为他正...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27202.html">室井参事官最恶の七日——黯然销混蛋</a>
+        </div>
+        <div class="article-abstract">01「天空好蓝啊&amp;hellip;&amp;hellip;。」青岛满足的仰着头望着天空，任由微风吹抚着他些许零乱的头发，悠闲的笑容无意外的挂在脸上。今天的天气很好，晴空很蓝，几朵白云幽幽淡淡的飘过，微风吹抚着带来不冷不热的舒爽。...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/modern/2017-02-13/27203.html">偶像明星的爱情生活（我的牙医情人）——ひちわゆか</a>
+        </div>
+        <div class="article-abstract">主要人物：新条烈：18岁，身高约173公分，偶像团体TRASH的一员，性格暴烈。家境十分富裕，但自小父母感情不睦(15年不讲话)，连带使他对婚姻，爱情有强的不信任感。体型偏向中性，皮肤光滑细致，18岁了还没有腋毛和腿...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;现代</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27201.html">晨曦特典守望同行——周而复始【有正文连接】</a>
+        </div>
+        <div class="article-abstract">晨曦 上&mdash;&mdash;周而复始<br /><br />
+http://www.fubooks.com/2010nian/2010-03-04/19177.html <br /><br />
+晨曦 下&mdash;&mdash;&mdash;&mdash;周而复始<br /><br />
+http://www.fubooks.com/2010nian/2010-03-04/19176.html 晨曦特典：守望...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27200.html">同居关系——秀香穗里</a>
+        </div>
+        <div class="article-abstract">在蒙蒙的烟雾之中，抬起头看看挂在墙上的圆形银盘时钟，正好指向凌晨二点整。呆呆地看着长针忽然一动，指向了二点一分。浅田谅一从他口中吐出长长的一道烟雾来，将身体深深地靠在椅背上。<br /><br />
+这已经是连续第二天熬夜了...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27199.html">哥哥，你的手放我衣服里面了——上帝的左耳</a>
+        </div>
+        <div class="article-abstract">文案：妈妈是超级同人女，爸爸是超级同人男，天哪这是什么家庭啊，幸好还有哥哥和我是正常的。结果&amp;hellip;&amp;hellip;&ldquo;哥哥，为什么这次去法国旅行爸爸妈妈没来啊&rdquo;&ldquo;因为他们想让我们增进一下感情啊&amp;...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/modern/2017-02-13/27198.html">都市祭灵师上——藏妖</a>
+        </div>
+        <div class="article-abstract">文案：请不要猜测祭灵师是否存在，他们就生活在我们中间，也许是你的邻居，也许是你的同学，也许就是那个刚刚与你擦肩而过的人。祭灵师游走在黑暗的边缘，时时刻刻谨记&amp;hellip;&amp;hellip;禁忌之一：祭灵者不可以灵术对...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;现代</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27196.html">武陵春（出书版）BY瑞者</a>
+        </div>
+        <div class="article-abstract">文案：阿弃独自一人生活在一个桃花遍地的仙境里，钓鱼酿酒，怡然自得，从来也没有寂寞的感觉。直到有一天，一个受伤又失忆的家伙闯进了他的世界。明明是个傻得被他取叫阿呆的家伙，又懒又爱偷掘他的酒「武陵春」来喝...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/modern/2017-02-13/27197.html">都市祭灵师下——藏妖</a>
+        </div>
+        <div class="article-abstract">第四十五章：黑 家 11监狱基地启动蓝色防御系统，总控制室，十几名技术人员集中全部注意力监控着整个基地的内外部情况。在上午063700时间，一名技术人员在按下蓝色警报器的同时，对准耳机上的话筒，报告：&ldquo;450...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;现代</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;10</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27195.html">为你痴狂（出书版）BY亚克</a>
+        </div>
+        <div class="article-abstract">文案：谷均岫事后常回想，如果那天不是自己突然大发善心如今也不会遭到「好心被雷亲」的下场&mdash;&mdash;从花美男惨遭毁容，成了疤脸男！本来父母双亡就够惨，想说有个舅父收养还不坏没想到是个外貌协会会场，瑕疵...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;4</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27194.html">回魂——青潆</a>
+        </div>
+        <div class="article-abstract">文案：这是一个开头有点像童话、中间有点悬疑色彩、虐的时侯很狗血、甜的时侯很装13、到最后终于成功转入鬼怪情节的&amp;hellip;&amp;hellip;诡异古耽文＝＝行文风格半文不白，中篇共约六万字，1v1cp，清水，攻受无差别。另：...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27193.html">无翼——像绵羊的木羊</a>
+        </div>
+        <div class="article-abstract">文案他说，他一直想展翅高飞，但他飞不了，现在，他把他的名字给我，把他毕生的梦想给我炎，那就让我带着你离开吧，远离所有纷扰，悲伤，黑暗即使没有翅膀，也能展翅翱翔这文会更的很慢，很慢，慎入内容标签： 花季雨...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27192.html">子璋第一卷+番外——吴沉水</a>
+        </div>
+        <div class="article-abstract">文案：后来，霍斯予禁不住想：如果那天，少了这其中任何一个环节，是不是接下来的一切都不会发生？至少，他与周子璋之间，不会有一个那么糟糕的开始？但世上没有如果，有的只是，老天爷一步一步，精心设下的，通往既...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;11</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27190.html">子璋第三卷+番外——吴沉水</a>
+        </div>
+        <div class="article-abstract">第三卷第79章&ldquo;你生气吗？&rdquo;在听完了他长长的叙述后，对面的男孩交叉的十指张开又合上，每根手指均骨肉均匀，修长漂亮。&ldquo;生气？&rdquo;周子璋困惑不解，喃喃地问：&ldquo;我生什么气？&rdquo;&amp;ldquo...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27191.html">子璋第二卷——吴沉水</a>
+        </div>
+        <div class="article-abstract">第二卷第 37 章后面的事，周子璋记得不是很清楚了。他只知道，自己像一个绑上断头台的囚犯，浑浑噩噩，头上悬着利器，完全没有任何生的希望，视野所及，全是一片猩红一样的颓败。他胳膊被霍斯予拽得生疼，这个混蛋使...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27188.html">妖魔七君第一、二部——蓝刹</a>
+        </div>
+        <div class="article-abstract">第一部 异世之路第一章 我们一家都是鬼吸血鬼，栖息在黑暗中古老而又神秘的种族，他们即非神也非魔，更不是人类&amp;hellip;&amp;hellip;与其他没有形体的鬼不同，虽然他们也没有心跳、没有脉搏、没有体温，既不老也不死。但...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;4</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27189.html">有仇必「抱」+番外——秋风无语</a>
+        </div>
+        <div class="article-abstract">文案：林啸寒那混小子一肚子坏水，从幼儿园起就总骗自己糖吃，小学的时候扒自己裤子，初中的时候，天天放学后，就埋伏在小胡同里堵自己&mdash;&mdash;告白？NO！打劫高中逼自己去帮他给女同学递小纸条，大学帮他买安...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27187.html">金银锁二——西宁【有前部连接】</a>
+        </div>
+        <div class="article-abstract">金银锁 一&mdash;&mdash;西宁<br /><br />
+http://www.fubooks.com/wanjie/2008-12-25/10514.html<br /><br />
+ 第一章<br /><br />
+&ldquo;呜呜，少爷，少爷，呜呜&amp;hellip;&amp;hellip;&rdquo;<br /><br />
+正是爽朗的秋季，夜里开始泛着淡淡的凉意，只有寥寥的夏虫虽...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27186.html">青春痕迹之回首相爱——影曳未明</a>
+        </div>
+        <div class="article-abstract">文案：一个自闭至极，一个闪耀至极。两个八竿子打不到一块的人因为&ldquo;她&rdquo;而有了交集，之后，并肩而行，却又背道而驰。他不知道真爱，所以他一路寻找真爱。他为了真爱，所以一路扮演间谍的角色。于是，给你...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27184.html">四方北堂篇——岚羽轩</a>
+        </div>
+        <div class="article-abstract">序曲中部某郊外的一家育幼院，所有的工作人员都忙著打包行李。因为这家育幼院因为经费不足，而面临关闭无法再继续生存下去了。 <br /><br />
+（该怎麽办？好不容易把所有的孩子都安顿好了，却又有不负责任的父母把小孩丢在育幼院...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27185.html">深情?心情?痴情--谁懂？（出书版）by水菱</a>
+        </div>
+        <div class="article-abstract">阡陌友情推荐--代序进入九十年代以来，台湾文坛悄悄地成长起一批小花，这些长在世纪末的新生代女作家，人人以写纯情小说见长。她们个个文笔清新，情感真挚，读她们的作品会使你感到生活在秋高气爽的原野中，耳边会响...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27183.html">夜月恋奇谈——斑鸠サハテ</a>
+        </div>
+        <div class="article-abstract">第一章<br /><br />
+第二学期刚开始的某个晴朗午后。<br /><br />
+选修的美术课上，坐在窗边画着老师出的题目－－石膏像素描的我－－葛城冬巳，突然发觉坐在我斜后方的九重夜月竟在偷画我！<br /><br />
+&quot;喂，可恶，不要随便画我啦！&quot;<br /><br />
+不禁鼓起脸颊抱...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;3</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27182.html">黑孔雀杨澄篇恋——落雁翎</a>
+        </div>
+        <div class="article-abstract">黑夜，笼罩着整条街道。在一所宾馆的豪华套房内，杨澄风坐在凌乱的床铺上，透过落地玻璃鸟瞰黑夜的台湾。他身上一丝不挂，却不甚在乎。就在这个时候，一名高大硕壮的男人从浴室里走出来，他的身体十分精炼强壮，双肩...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27180.html">火浴七年第三部——水墨西洋【有前部连接】</a>
+        </div>
+        <div class="article-abstract">火浴七年（第一部）----水墨西洋http://www.fubooks.com/wanjiexinqu/2009-04-08/14855.html<br /><br />
+火浴七年 第二部&mdash;&mdash;水墨西洋http://www.fubooks.com/2009nian/2009-12-21/18407.html<br /><br />
+文案：没关系，苍天...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27181.html">黑孔雀易凝灰篇傷痕——落雁翎</a>
+        </div>
+        <div class="article-abstract">「停手」一脸不平的男孩走到一群小孩旁，大声的斥喝。然男孩年少，可是明的成为了小孩群中的首，小孩们听到他的喝止，都停下手来。小孩群的中央，有一个蹲着的小小身影，的抽泣着。他身都是泥巴和伤痕，衣服都被打得...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;10</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27179.html">莫第Ⅱ之伴我一生——小林子【有前部连接】</a>
+        </div>
+        <div class="article-abstract">莫第&mdash;&mdash;小林子http://www.fubooks.com/wanjie/2008-12-04/5657.html<br /><br />
+莫第Ⅱ之伴我一生文案： <br /><br />
+亲情、友情、还是爱情呢？本该是简简单单就能划分的情感，为什么变得如此错综复杂？ <br /><br />
+面对着自己如此珍惜...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;3</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27178.html">月舞异世（第一部穿越）+番外——夜舞月</a>
+        </div>
+        <div class="article-abstract">第一章&ldquo;妈妈，我回来了，今天&amp;hellip;&amp;hellip;&rdquo;我叫夜舞月，今年8岁，和妈妈夜雨柔一起生活。我的名字是妈妈起的，班上的同学都说很像女孩子的名字，我很生气。我曾经问妈妈，她说当初怀上我的时候希望会...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27176.html">抱团——凯特睿</a>
+        </div>
+        <div class="article-abstract">引子&ldquo;Hold me and love me，Just  wanna touch you for a minute&amp;hellip;&amp;hellip;&rdquo;妖娆而性感的嗓音在早晨七点准时响起，对比一床横七竖八交叠在一起的身体，气氛倒也适合。手机的主人沈颜却反而把头更深...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27177.html">月舞异世（第二部穿越）+番外——夜舞月</a>
+        </div>
+        <div class="article-abstract">第三十章痛，深入骨髓的痛，舞月感觉自己犹如置身于烈火之中，身体被炽热的烈火焚烧着，灼热的温度让他难以呼吸。公子&amp;hellip;&amp;hellip;公子&amp;hellip;&amp;hellip;舞月感觉到好像有谁在呼唤自己，可是他的眼皮就像被注了铅...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27175.html">星路之重生上——唐琪儿</a>
+        </div>
+        <div class="article-abstract">文案：一个为了爱，从当红偶像，最后沦落成一个小小场务的人。当他重生后，成为了有权有势的富家公子。面对曾经帮助过他的人，面对曾经要潜他的人，以及身体里强烈对于家庭的叛逆与说不清道不明的感情。他又要如何面...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27173.html">望穿秋水（出书版）+番外BY雨轻尘</a>
+        </div>
+        <div class="article-abstract">文案：年少时任人狎弄的皮肉生涯，是秋水无法直视的过往当年他以一双眼换取离开火坑的机会如今虽已成为四皇子身旁首屈一指的相师但天机算尽也算不出自己的未来，是所有相师的宿命而这个权倾当朝的右相南方晏，到底是...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27174.html">星路之重生下+番外——唐琪儿</a>
+        </div>
+        <div class="article-abstract">第三十三章：矜持的采访佐枭让凌斌去学校，是想让他消停点？最近不再有什么不必要的新闻？当然消停一个很短的时间再出来，新闻爆光率还是不用说的，可若有什么突发情况，或是免费宣传的事，佐枭也一定不想拒绝掉。A大...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27172.html">雪季——雪季</a>
+        </div>
+        <div class="article-abstract">文案：我曾经问过我爸妈一个每个小孩都会问的问题，我是从哪里来的，我爸说，我是我妈生的，我妈说，我是拣来的。每一个小孩到后来都会知道自己是怎么来的，只是后来，我的父母却都已经没办法再告诉我了。于是，我又...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/fantasy/2017-02-13/27171.html">天龙网游之是敌非友——了了狐</a>
+        </div>
+        <div class="article-abstract">文案：简单的说，这是一个相爱相杀，敌对变CP的欢乐网游故事&amp;hellip;&amp;hellip;内容标签： 欢喜冤家搜索关键字：主角：裴然（斩千人），凌晨三点 ┃ 配角：一墨亦墨，婉若清扬 ┃ 其它：林中漫步，红烧狮子头第一章裴然...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;玄幻</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27170.html">粽出没注意——沐九</a>
+        </div>
+        <div class="article-abstract">文案：后代死得只剩两个人道士家族直系传人──天生毒舌迟暮被一位从天而降的黑道少爷劫持到了荒郊野外一栋鬼屋。古板无聊的的毛笔信件，沾满黑色陈旧血迹的墙壁、地板，位于其中迟暮只觉怪异与熟悉。这鬼屋的尸体烂...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27169.html">黑暗契约者（出书版）BY和泉桂</a>
+        </div>
+        <div class="article-abstract">文案：&ldquo;把你的肉体和灵魂，只要你能交出来的统统给我。&rdquo;月笙因为不能为人所知的秘密，隐藏自己的身分经营着一家小中药行，低调地过日子。某晚，亚历克西斯&amp;middot;道丁&mdash;&mdash;一个因为太接近恶魔...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;4</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27168.html">少年游（出书版）+番外BY末回</a>
+        </div>
+        <div class="article-abstract">文案：好好走在半路上被抢亲，竟然不是嫁个如花似玉的美娇娘给他，而是要他堂堂男儿去嫁给一个病弱鬼！？若非眼前老夫妻哭求跪拜，程跃真想拂袖便走。奈何程跃怎么也无法狠心拒绝这对父母最后的希望。想想反正九九八...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27167.html">青葱校园─起点&#8226;终点（出书版）BY记者甲</a>
+        </div>
+        <div class="article-abstract">序「我爱你，你呢?」我喜欢看小说，但自己的专业是社会科学，只习惯写论文。不过多年来在大学工作，一直和年轻人有密切接触，除了分享学问的知识之外，也体会到他们的理性和感性，他们的喜怒哀乐。所以和甲甲一班年轻...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;3</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27166.html">靡靡之音（穿越）上——夜残</a>
+        </div>
+        <div class="article-abstract">文案：前世在睡梦中终结，结束了不能大悲大喜的人生。黑道只是个幌子，为了生活不得已。楚然变成了夜靡音。可是性子养成了，平淡就是平淡。有着过于出众外貌的自己，到底怎么才能继续平淡下去？上一世看到的黑暗太多...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27164.html">靡靡之音（穿越）下+番外——夜残</a>
+        </div>
+        <div class="article-abstract">74章这是靡音第三次来紫阳阁，距离第二次不过两个月左右。按照这个速度，看来第四次就在几天后了。紫阳阁的变化只有当天晚上的节目和来来往往的客人，偶尔还有新出现的小倌顶着青涩的面孔出现在紫阳阁的角落。夜摩雅...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27165.html">靡靡之音（穿越）中——夜残</a>
+        </div>
+        <div class="article-abstract">41章许久没有乘抹茶出去了，连摸摸它的机会都少了很多。所以这次见它，它很是亲密的靠在靡音身上蹭了一会儿。靡音摸了摸它的鬃毛，笑了出来：&ldquo;抹茶，你是不是最近长胖了那？出去跑跑怎么样？&rdquo;抹茶好像听...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27163.html">H的恋爱特效药——せんとうしずく</a>
+        </div>
+        <div class="article-abstract">文案：<br /><br />
+有点脱线的可爱高中生世斗，总是代替老翘班的保健老师，悠闲地看守保健室。 但是，天有不测风云，俊美的沙南学长和酷酷的神牙学长突然同时向他表白，从此他就每天遭受两人的魔掌侵袭！ 心里知道不能脚踏两条...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27161.html">天狼八部（穿越）——陵濑雪弥</a>
+        </div>
+        <div class="article-abstract">文案：一个和佛经神话人物有关的故事，主角是个一直想翻身但是没出息的受，小攻有很多~~第一章&ldquo;对不起，我想我们还是分手吧，我并不适合你，希望你找到比我更优秀的另一半。&rdquo;学长放开我的手。这是做梦吗...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27162.html">橙黄——niuniu</a>
+        </div>
+        <div class="article-abstract">早上七点半，准时醒来，快速冲了一个淋浴，在镜子里看看自己，气色还算不错。 <br /><br />
+整理一下原本就很整洁的房间。 <br /><br />
+煎蛋、烤面包、热牛奶，吃早餐。 <br /><br />
+检查必带的东西：公文包里的资料、手机、钥匙、名片夹、笔&amp;hellip...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27160.html">他的江山里有我的名字男皇后传第一、二卷——再见米兰</a>
+        </div>
+        <div class="article-abstract">文案：韩子高，南朝第一美男，正史上他是将军，野史里他是皇后。文字记载他容貌艳丽，螓首膏发，自然娥眉，肤质纤妍洁白，形体俊美修长，见者靡不啧啧。在当时，男子为之倾倒，女子见之痴狂。陈文帝一生宠爱于他，未...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27158.html">悲患——黎离</a>
+        </div>
+        <div class="article-abstract">文案：秋迹痕离家的时候只带走了他的破木吉他和身上原本就存下的几千块钱。他还清晰的记得走出大门那一刻父母脸上表情是在他过去与他们生活的十八年里从未有过的悲伤与放松。至少还有悲伤，他想，那么这样走的话，至...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27159.html">他的江山里有我的名字男皇后传第三、四卷+番外——再见米兰</a>
+        </div>
+        <div class="article-abstract">第三卷第一百章： 瞻彼淇奥，绿竹青青天嘉三年七月初七，这天下完朝回来，蒨笑嘻嘻地对我说：&ldquo;子高，今天是七夕节，我们出宫游玩如何？&rdquo;&ldquo;好啊，我去传旨让他们准备车马仪仗、备身卫队。&rdquo;我正...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27157.html">名将倾国——伊依轩主</a>
+        </div>
+        <div class="article-abstract">文案：&ldquo;我等你醒来，醒来你可要告诉我你会永远爱我哦，不准你在丢下我一个人了。&rdquo;我会永远爱你，不会再丢下你，我的封龙石，我的半魂&amp;hellip;&amp;hellip;随即跟随肉体一起沉睡修养生息的元神在封龙石的耳边...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27156.html">彼岸夜晚是白天+番外——八千点乌云</a>
+        </div>
+        <div class="article-abstract">文案：李福，名字和样貌都很普通，从小到大对事事都很淡漠。这样一个普通的少年，竟然喜欢上了那个曾经欺负过自己的人，同性？？发现到自己异常的情愫后，傻了吓了惊了，也爱了&amp;hellip;&amp;hellip;只是几年后，物是人非...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27155.html">乐园——ranana</a>
+        </div>
+        <div class="article-abstract">文案：段明辉听周晋棠说，在南边的远方，有绿色的山，红色的花，紫色的蝴蝶，白色的岛屿，那里是乐园。不长，微悬疑。一对一，HE，攻受都不太正常。内容标签：惊悚悬疑 三教九流搜索关键字：主角：周晋棠，段明辉 ┃...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27153.html">三世情缘之前世篇琴麻岛之上——阿舞</a>
+        </div>
+        <div class="article-abstract">三世情缘之今世篇 天意 第一部 上&mdash;&mdash;阿舞http://www.fubooks.com/2011nian/2011-08-21/26805.html三世情缘之今世篇 天意 第一部 下&mdash;&mdash;阿舞http://www.fubooks.com/2011nian/2011-08-21/26804....</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27154.html">已经花开（迷失者）+番外——洛晴</a>
+        </div>
+        <div class="article-abstract">1炽烈而横蛮的吻突然旋风般袭上他的唇，展开如同一头饥渴的野兽的猛烈侵略，咬得他的唇发痛，舌在他的口腔里搅缠得快要让他窒息，任何拒绝甚至是惊呼都来不及宣之以口，就化成一连串急促细碎又暧昧的喘息呻吟。「唔&amp;...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27151.html">三世情缘之前世篇琴麻岛之下——阿舞</a>
+        </div>
+        <div class="article-abstract">第一百十四章 攻逼笑天见到致远时心头便不由自主的一阵绞痛，此时与他面对面站着，更是胸口疼得连身子都几乎站立不稳。当下便独自扶着墙蹒跚着退了两步，拼命压抑住自己，垂着眸静静的回道：&ldquo;我没把你的话当耳...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27152.html">三世情缘之前世篇琴麻岛之中——阿舞</a>
+        </div>
+        <div class="article-abstract">第四十八章 小巧笑天从未骑过马，此时又被这陌生男子抱在身前，一开始不勉有些心慌，但随着那俊马载着他似闪电般疾驰如风，一向喜欢速度追求快感的笑天便放松了心神，一心一意享受起这奔驰的乐趣来。陌生男子身下的这...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27150.html">警戒线——拾舞</a>
+        </div>
+        <div class="article-abstract">一．Don不记得自己是什么时候意识到的。也许，是那个下雨的夜里，他在Charlie床上分享了一点温暖之后。也或许是在更早之前。那种感觉，就像犯罪现场上拉起的黄色警戒线。他知道自己不能越线而过，但他无法不看见那条...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27149.html">青苹果纪事+番外——卡门青德</a>
+        </div>
+        <div class="article-abstract">文案：小暴发户季默惹了一屁股风流帐，被老爸老妈绑回国内进行再教育也就算了，可为什么会被丢进这种虐待狂的变态平民学校呢？季默同学还没来得及对自己的青春进行哀悼，就对小美女颜如玉一见钟情了，心花儿朵朵开时...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27148.html">空城之一空城——卫风无月</a>
+        </div>
+        <div class="article-abstract">文案：我们会走向何方？有人会与我相爱吗？长生不死的生命，如此寂寞。唯有爱，填满一切虚空。这爱，能有多久呢？多么希望这与我的生命一样永盛不衰~~对了，这是游戏《暗黑破坏神》的同人，想进一步了解本文背景的亲...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27147.html">空城之二流年——卫风无月</a>
+        </div>
+        <div class="article-abstract">序我可以给你什么？如果你可以幸福，那么，我可以给你我的所有。只让我带走你的悲伤。曾经&amp;hellip;&amp;hellip;遇见一场烟火的表演用一场轮回的时间紫微星流过来不及说再见已经远离我一光年有生之年狭路相逢终不能幸免手...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27146.html">空城之三人间——卫风无月</a>
+        </div>
+        <div class="article-abstract">文案：我有些迷惑，眯起眼看看他，又转头看看我所在的地方。这是一片密林，是的。从我站的地方看过去，四面八方，都是针叶林，密密的紧紧的挨在一起的树木遮挡了人的视线。地下的确有马蹄印，那个人说我是从马上落下...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;4</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27145.html">空城之四誓言——卫风无月</a>
+        </div>
+        <div class="article-abstract">第一章&ldquo;少爷回来了。&rdquo;&ldquo;嗯。&rdquo;我转过头，天空阴沉沈的，云层仿佛就压在不远处的钟楼塔尖上：&ldquo;今晚大概会下雪。&rdquo;&ldquo;是的，少爷。&rdquo;庄园的院墙里绝不似外面街道那样凄凉冷...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27144.html">天降祥瑞（瑞羽纷纷穿越时N-P）——紫茵琉璃</a>
+        </div>
+        <div class="article-abstract">文案：瑞&amp;hellip;&amp;hellip;瑞&amp;hellip;&amp;hellip;是谁在叫我？我好累，好想睡，不要再叫我了&amp;hellip;&amp;hellip;而那锲而不舍的呼喊声，让他不得不睁开沉重的眼睛，晕眩混乱的视线令他看不清四周的情形，只觉得身边白茫茫一...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27142.html">大学BL报告第一卷——嵌嵌未央</a>
+        </div>
+        <div class="article-abstract">文案：如&amp;lsquo;天使&amp;rsquo;一般的霍倘踏入T大，从此出现在何契的生活里。那些原先的平淡被打破，纠结、烦恼全数蜂拥而至&amp;hellip;&amp;hellip;何约、方少白、邱桐、落云侯，每个人生活都不易，每个人的感情也都是那么的真...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;13</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27143.html">现世沉浮之蓝调迷殇——半岁</a>
+        </div>
+        <div class="article-abstract">文案：强势诱骗，温情陪伴，你爱哪一个&amp;hellip;&amp;hellip;&ldquo;卓，我看你最近无趣的很。&rdquo;祁明晃着摇酒器，花式调酒学的有模有样，卓立言把玩着着手里的酒杯，无聊的打着哈欠。&ldquo;是无聊，没爱做，没人玩。...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27141.html">大学BL报告第二卷——嵌嵌未央</a>
+        </div>
+        <div class="article-abstract">卷二：守护，落寞幸福Part 48 伊始、单纯与复杂再度回到这里，果真感觉变了许多。一个假期的洗礼，便将心沉淀下去，许多事，还是不要看的太透比较好。何契站在T大的校门外，望着这个熟悉又陌生的地方，心里一阵感触。...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27140.html">记叙时光——温塔</a>
+        </div>
+        <div class="article-abstract">文案：当四岁的梁清穿着开裆裤满山跑的时候，洛里婉转地拒绝了女生的第八封情书。当七岁的梁清偷偷把毛毛虫塞进前排女生衬衣后领的时候，洛里拖着行李箱一个人踏上异国求学之路。当十岁的梁清因为父亲去世被迫扛起家...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27138.html">执念——孑鲱</a>
+        </div>
+        <div class="article-abstract">文案：一个小攻爱上一个小受的故事呗~~他对他的感情是种执念，挣不脱，逃不了内容标签：不伦之恋 年下 强取豪夺 都市情缘主角：苏念、欧阳暮岩 ┃ 配角： ┃ 其它：年下第一章今天是欧阳暮岩18岁生日。我请了一天假，...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27139.html">灰‘姑娘’的水晶鞋+番外——猫钥匙</a>
+        </div>
+        <div class="article-abstract">文案：因为不愿出国留学，所以离家出走，在好友的帮助下，进入圣泉，从而认识了&amp;hellip;&amp;hellip;冰冷腹黑的学生会主席温柔内敛的高数老师有趣的剑道社长时而可爱时而狠厉的国民弟弟究竟谁才是他的天命另一半？cospla...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27137.html">史上最恶爱情大魔咒——猫岛瞳子</a>
+        </div>
+        <div class="article-abstract">港都，充满异国风情的魅力神户。<br /><br />
+街道上，因为圣诞节的彩色灯饰而更显得华丽的今夜&mdash;&mdash;<br /><br />
+我，&mdash;&mdash;冈田亮太，刚从公司辞职&mdash;&mdash;是自动离职的。<br /><br />
+因为还有没消化完的年假，所以虽然正是...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27136.html">ANSWERII——崎谷はるひ</a>
+        </div>
+        <div class="article-abstract">管理提醒： 本帖被 阿卡流斯 从 ■-『采菊东篱下』 移动到本区(2010-09-21) 调匀着粗喘的呼吸感受躯体的重量悄然离去，秦野车生的胸门掩上一抹淡然的惆怅。<br /><br />
+「&amp;hellip;&amp;hellip;你还好吧?」<br /><br />
+「嗯&amp;hellip;&amp;hellip;」...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27135.html">ANSWER——崎谷はるひ</a>
+        </div>
+        <div class="article-abstract">呵出沙哑娇声的瞬间，视线也随之朦胧。<br /><br />
+滚烫的双颊顿时感受到一阵凉意，秦野知道那是眼泪，虽然想伸手擦掉，无奈两只手臂早已缠绕在男人背上，无法抽离。<br /><br />
+就算不是如此，光凭男人结实腰杆送上的激烈律动，身体便已...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27134.html">恶魔的复仇——云心</a>
+        </div>
+        <div class="article-abstract">上官凌明六岁那年，亲眼目睹父亲因无法承受母亲外遇，而在家中上吊自杀，幼小的他却有着早熟的心灵，他发誓，等他长大，他一定要复仇。 被姑姑上官瑞雪带大上官凌明，十八岁便继承了家业，成为业界最年轻的总裁，这些...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27133.html">情仇·情愁+番外（出书版）by十三</a>
+        </div>
+        <div class="article-abstract">文案：罗泓堰。<br /><br />
+一个江湖中罕有人不知的男人，一个据说拥有全天下最稳的一双手的男人。<br /><br />
+他遭人暗算、命在旦夕的消息，在江湖上以星火燎原的速度漫延开来。<br /><br />
+他的朋友很多，但所有人都对他的伤束手无策。<br /><br />
+天下第一...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27132.html">黑猫王子的爱情日记（出书版）BY随风飞</a>
+        </div>
+        <div class="article-abstract">文案：黑猫茶茶快受不了！主人的弟弟小恶魔&mdash;&mdash;陈风，总是露出邪恶的笑容，大吃特吃它的猫豆腐。但茶茶也不禁思索，为何小恶魔会对它诉说缠绵缱绻的爱语？难道一个人真会可笑地爱上&amp;hellip;&amp;hellip;一只猫...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27131.html">不受不受还需受——雾界</a>
+        </div>
+        <div class="article-abstract">赎罪不是小孩该干的<br /><br />
+雪海是个很乖的孩子。从小到大见过他的人都是这么说的，无论男女，他们看到雪海的第一面的时候总是用吻来打招呼，似乎不这样做就不能证明他们口中所强调的&mdash;&mdash;乖。<br /><br />
+ <br /><br />
+而事实上，雪海...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27130.html">弱攻天下第一卷——米酒</a>
+        </div>
+        <div class="article-abstract">第一卷001.惬意午后1郁郁葱葱的小林，阳光透过枝叶的间隙投射出斑驳的影。我站在湖边悠闲的撒着手中打溏用的糟糠，随后抄起了身边的鱼竿甩了出去。啪的一声轻响，鱼钩落入平静的湖中，溅起了几点小小的水珠，一圈圈的...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27129.html">弱攻天下第二卷——米酒</a>
+        </div>
+        <div class="article-abstract">第二卷001.青楼长亭古道，西风瘦马。初冬的西北已经是十分的寒冷，天空飘起的雪花，被北风吹得在空中打着旋的落下。毫州城里，日落过后，风更加的肆虐，吹的路上的行人东倒西歪的，缤纷收拢着自己的衣袖，低头赶路，...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27127.html">绝然无心（穿越FZ）——圣零樱风</a>
+        </div>
+        <div class="article-abstract">文案：「我该怎麽称呼你？是叫名字，还是称你为&amp;hellip;&amp;hellip;父亲？」他面容平静，望着那俊美却冷酷无情的男人，淡声问。沙哑的声音听不出情绪。「随意。」他目不斜视，看也不看面前的少年一眼，冷声答道。简练的...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;9</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27128.html">弱攻天下第三卷+番外——米酒</a>
+        </div>
+        <div class="article-abstract">第三卷001.苏醒头很晕&amp;hellip;我昏昏沉沉的从睡梦之中醒来，闭着眼睛坐了起来，怎么这么痛？我用手扶住了额头，努力的甩了甩自己的头，想让自己清醒一点。&ldquo;公子，你可醒了！&rdquo;一个沙哑的声音传来，我茫然...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/fantasy/2017-02-13/27126.html">夜舞清冥之风色幻想OL（穿越网游第一部）+番外——夜华暗渺</a>
+        </div>
+        <div class="article-abstract">文案：穿越了几千年的时光，已经逝去的历史，再次以另外的形式重新上演。这不是一个游戏，这是另外一个世界。在这个世界相遇的你和我，是否有另外的可能性？设定一定要看。另外 有玩过风色幻想OL的请一定要把本篇隔离...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;玄幻</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/fantasy/2017-02-13/27125.html">夜舞清冥之风色幻想OL（穿越网游第二部）+贺文+番外——夜华暗渺</a>
+        </div>
+        <div class="article-abstract">文案：当一切都无可或缺的时候，是不是反而会显得无聊？至少他炎焰是了，所以在他的小姑艾鲁建议他去加入风色冒险者时，他并没有拒绝。意料之外的人，意料之外的公会。当真正能吸引他注意的东西出现时，他可不会轻易...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;玄幻</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27124.html">探险家——燃烛</a>
+        </div>
+        <div class="article-abstract">文案：两个男人之间的冒险故事。第一章：侦探事务所[场景：李玄侦探事务所]当夜一丝丝渗进白昼，这浓墨一般的夜幕最终完全挤了进来，并且不安分的带来了骤风烈雨，这突然而至的暴风雨仿佛是黑暗降临时随身携带的一件...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27122.html">游医中——少爷平梵</a>
+        </div>
+        <div class="article-abstract">第二十九章这几日的天气反常，按理说夏末秋初该是转凉的时候，可是偏偏这一行是一路往东，秋老虎总爱玩儿个去而复返的把戏，一场秋雨一场寒，秋老虎一回来又恢复盛夏时的炎热，时冷时热扰得人好不烦躁。刚下过一场雨...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27123.html">游医上——少爷平梵</a>
+        </div>
+        <div class="article-abstract">文案：这是一个小别扭和大腹黑斗智斗勇谈恋爱的故事。最初，小别扭装的一本正经，大腹黑装的温和纯良。然后，小别扭救了大腹黑，大腹黑带走了小别扭，两个人就开始变形了。接着，小别扭和大腹黑遇到了一个也很腹黑的...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27121.html">游医下——少爷平梵</a>
+        </div>
+        <div class="article-abstract">第六十章中秋节刚过的时候，江湖上传出了这么一件事儿：聆风听雨楼的总楼里，莫名其妙的多出了第二把交椅。其实这事儿说大也不算大，皇帝之下还有个丞相代为总领百官呢，江湖门派多一个为一派之主分忧的副手算不的稀...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27120.html">落花有意——萌之啾啾</a>
+        </div>
+        <div class="article-abstract">文案：这么久以来，我都在跟池跃纠结一句我爱你，我怎么都想不明白，为什么这么简单的三个字，他就是说不出口。直到后来我才知道，他不是不肯说，只是他告诉我的时候，我没用心听而已。内容标签：情有独钟 欢喜冤家主...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;19</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/terror/2017-02-13/27119.html">诃子山奇谈（现代灵异）上——夏天无</a>
+        </div>
+        <div class="article-abstract">文案：啥？对方竟然是妖怪？他妈的，见鬼的咒印相生&amp;hellip;&amp;hellip;！！啊？哦。既然都是一绳上的蚂蚱了，那么一起就一起吧。前世之渊，后世之缘。注定，不注定，皆已命里有数。这是一群生活在城市里的妖怪与人的故...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;灵异</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27118.html">诃子山奇谈下——夏天无</a>
+        </div>
+        <div class="article-abstract">第二十八章：下J市是个特殊的地方，这里是聚灵之地，灵师却极少，跟其他地方相比，简直就是妖怪修行的天堂。但是相对的，J市所有的妖怪都在那个俗称机关的部门的监视之下。所有登记在册的外来妖怪都会拿到一张暂住证...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27116.html">浪漫赌注第一、二部——小川ぃら</a>
+        </div>
+        <div class="article-abstract">第一部　说你爱我！ <br /><br />
+&ldquo;慎朗学长，别忍住声音嘛！&rdquo; <br /><br />
+听到彻这么说，慎朗才发出一声短促的呻吟。 <br /><br />
+慎朗柔丝般的黑发湿漉漉地黏贴在额前。 <br /><br />
+而漆黑如星的眼眸此刻也正像强忍着痛苦似地紧闭着。 <br /><br />
+堆积在...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;5</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27117.html">坏小子+番外——狂上加狂</a>
+        </div>
+        <div class="article-abstract">文案跟着好人学好人，跟着老虎学咬人 谨以此文警告世人 交友要谨慎 ~~阿门搜索关键字：主角： ┃ 配角： ┃ 其它：一&ldquo;新的学期来到了，我们班又来了一位新同学，请大家鼓掌欢迎&amp;hellip;&amp;hellip;&rdquo;一群鼓着...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27115.html">贵族花嫁——远野春日</a>
+        </div>
+        <div class="article-abstract">第一章与会的宾客们浪涛般的絮语席卷了整个会场。帝国饭店最高级的大厅内正在举行一场结婚典礼。相较于形式上简单隆重的贵族婚礼，这场婚宴的排场可说是盛大无比，奢华的程度令平民老百姓瞠目结舌、望尘莫及；坐在正...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27114.html">伤爱——WILDLY</a>
+        </div>
+        <div class="article-abstract">阳光，好耀眼。 <br /><br />
+虽然，现在只是黎明时份，太阳才刚刚冒出来，但对于惯于在黑暗中的人，对于光丝总是非常敏感。 <br /><br />
+抬起白晢的手肘挡住阳光，童悔起眼，迷蒙的看着前路。 <br /><br />
+身体的疼痛还在，意识也还在混沌之间，故此...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;4</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/other/2017-02-13/27113.html">风起建章之嫣然篇——卡门</a>
+        </div>
+        <div class="article-abstract">第一章（上） <br /><br />
+西汉，武帝建元二年 <br /><br />
+平阳侯曹时府 <br /><br />
+&quot;要打猎，我没什么话好讲，你要宠他赏他钱财，我也没什么好讲，但是凡事都应有个限度。你知道朝中有多少人对韩嫣 <br /><br />
+已是咬牙切齿，恨不得除之而后快吗？&quot; <br /><br />
+韩嫣...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;其他</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;6</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27112.html">擒受（穿越）上——濯炎</a>
+        </div>
+        <div class="article-abstract">文案：这是个倒霉蛋穿越成豹子的故事这是个豹子拼命想变成人的故事这是个成人前后都JQ满满的故事豹子临水：我不是禽兽我不是禽兽我不是禽兽！众家小攻：对！你不是禽兽所以你只是个诱受！豹子临水：我是直的我是直的...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;7</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div><div class="article">
+    <div class="article-body">
+        <div class="article-title">
+            <a href="https://flymore.ga/book/rebirth/2017-02-13/27110.html">重生之小妖怪大天神——胡扯扯</a>
+        </div>
+        <div class="article-abstract">文案：王文川不叫王文川，他还有一个好听的名字叫诛彦。但是吧，王文川活了N辈子，他与这个名字仍然是隔着十万八千里的距离。直到从人间换成地狱再变成花妖，然后遇上他，还有他，才让他在爱与纠结中萌芽。本来，他只...</div>
+    </div>
+    <div class="clear"></div>
+    <div class="article-footer">
+        <span><i class="fa fa-clock-o"></i>&nbsp;2017-02-13</span>
+        <span class="article-list"><i class="fa fa-list"></i>&nbsp;穿越</span>
+        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;8</span>
+        <span class="article-viewinfo"><i class="fa fa-comment"></i>&nbsp;0</span>
+    </div>
+</div>
+        <div id="paging"><a title="Total record">&nbsp;<b>101349</b> </a>&nbsp;&nbsp;<a href="https://flymore.ga/book/index.html">首页</a>&nbsp;<a href="https://flymore.ga/book/index_495.html">上一页</a>&nbsp;<a href="https://flymore.ga/book/index_494.html">494</a>&nbsp;<a href="https://flymore.ga/book/index_495.html">495</a>&nbsp;<b>496</b>&nbsp;<a href="https://flymore.ga/book/index_497.html">497</a>&nbsp;<a href="https://flymore.ga/book/index_498.html">498</a>&nbsp;<a href="https://flymore.ga/book/index_497.html">下一页</a>&nbsp;<a href="https://flymore.ga/book/index_676.html">尾页</a></div>
+
+
+
+    </div>
+
+    <div class="layui-col-md4">
+
+        <div class="fly-panel" style="padding: 20px 0; text-align: center;">
+            <div class="layui-anim avatar"><a href="javascript:"><img alt="再賤就再見" src="https://flymore.ga/skin/default/images/avatar.jpg" style="width:120px; height:120px; border-radius:100%;"></a></div>
+            <h1>
+                <a href="javascript:" style="font-size: 24px">再賤就再見</a>
+                <i class="layui-icon layui-icon-male" style="font-size: 22px; color: #1E9FFF;"></i>
+            </h1>
+            <p style="color: #999999;margin: 8px">
+                <a href="mailto:iflymore@yandex.com" target="_blank" title="email"><i class="layui-icon layui-icon-email" style="padding-right: 5px;"></i> <span>联系我们</span></a>
+                &nbsp;<i class="layui-icon layui-icon-location"></i> <span>耽美 - 中国</span>
+            </p>
+            <p style="color: #999999;margin: 8px">為每一位到來的朋友，傳遞純真的夢想！</p>
+            <hr />
+            <div>
+                <a href="https://t.me/xbbchat" target="_blank" title="telegram"><i class="layui-icon layui-icon-release"  style="font-size: 32px;padding-right: 15px;"></i></a>
+                <a href="https://paypal.me/flymore/" target="_blank" title="paypal"><i class="layui-icon layui-icon-dollar" style="font-size: 32px;padding-right: 15px;"></i></a>
+                <a href="mailto:iflymore@yandex.com" target="_blank" title="service"><i style="font-size: 32px;" class="layui-icon layui-icon-dialogue"></i></a>
+            </div>
+        </div>
+
+        <dl class="fly-panel fly-list-one">
+            <dt class="fly-panel-title"><i class="layui-icon layui-icon-read"></i>  最新小説</dt>
+                        <dd>[其他]<a href="https://flymore.ga/book/other/2021-07-18/101920.html">带团登顶娱乐圈（无CP向）下+番外――月上天</a> <span><i class="layui-icon">&#xe60e;</i> 2021-07-18</span></dd>
+                        <dd>[其他]<a href="https://flymore.ga/book/other/2021-07-18/101919.html">带团登顶娱乐圈（无CP向）中――月上天</a> <span><i class="layui-icon">&#xe60e;</i> 2021-07-18</span></dd>
+                        <dd>[其他]<a href="https://flymore.ga/book/other/2021-07-18/101918.html">带团登顶娱乐圈（无CP向）上――月上天</a> <span><i class="layui-icon">&#xe60e;</i> 2021-07-18</span></dd>
+                        <dd>[其他]<a href="https://flymore.ga/book/other/2021-07-18/101917.html">穿书之小可怜手握爽文剧本（网游）下――李温酒</a> <span><i class="layui-icon">&#xe60e;</i> 2021-07-18</span></dd>
+                        <dd>[其他]<a href="https://flymore.ga/book/other/2021-07-18/101916.html">穿书之小可怜手握爽文剧本（网游）中――李温酒</a> <span><i class="layui-icon">&#xe60e;</i> 2021-07-18</span></dd>
+                        <dd>[其他]<a href="https://flymore.ga/book/other/2021-07-18/101915.html">穿书之小可怜手握爽文剧本（网游）上――李温酒</a> <span><i class="layui-icon">&#xe60e;</i> 2021-07-18</span></dd>
+                        <dd>[其他]<a href="https://flymore.ga/book/other/2021-07-18/101914.html">翠鸟时日――Autumnmt</a> <span><i class="layui-icon">&#xe60e;</i> 2021-07-18</span></dd>
+                        <dd>[其他]<a href="https://flymore.ga/book/other/2021-07-18/101913.html">嫁错人后婚姻实录（包子）下+番外――35画生</a> <span><i class="layui-icon">&#xe60e;</i> 2021-07-18</span></dd>
+                        <dd>[其他]<a href="https://flymore.ga/book/other/2021-07-18/101912.html">嫁错人后婚姻实录（包子）上――35画生</a> <span><i class="layui-icon">&#xe60e;</i> 2021-07-18</span></dd>
+                        <dd>[其他]<a href="https://flymore.ga/book/other/2021-07-18/101911.html">捡到一只小狼狗+番外――花不老</a> <span><i class="layui-icon">&#xe60e;</i> 2021-07-18</span></dd>
+                    </dl>
+
+        <dl class="fly-panel fly-list-one">
+            <dt class="fly-panel-title"><i class="layui-icon layui-icon-read"></i>  推荐小説</dt>
+                        <dd>[玩觅]<a href="https://flymore.ga/book/emotion/2019-10-04/87354.html">舍不得说再见，但已到离别时</a> <span><i class="layui-icon">&#xe60e;</i> 2019-10-04</span></dd>
+                        <dd>[未来]<a href="https://flymore.ga/book/future/2018-10-21/79389.html">星际之你婚求得太早 上――月寂烟雨</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-21</span></dd>
+                        <dd>[穿越]<a href="https://flymore.ga/book/rebirth/2018-10-20/79382.html">快穿之黑化主角的100种方法 上――煤炭里的黑猫</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-20</span></dd>
+                        <dd>[穿越]<a href="https://flymore.ga/book/rebirth/2018-10-20/79337.html">快穿之总攻来袭！上――一蔻一池</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-20</span></dd>
+                        <dd>[穿越]<a href="https://flymore.ga/book/rebirth/2018-10-20/79333.html">炮灰逆袭探案系统（穿越）上――风</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-20</span></dd>
+                        <dd>[穿越]<a href="https://flymore.ga/book/rebirth/2018-10-17/79286.html">快穿之科学修真的五好家庭 上――羽小树</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-17</span></dd>
+                        <dd>[穿越]<a href="https://flymore.ga/book/rebirth/2018-10-17/79247.html">快穿之我为主角播撒智商（一）――送君十里</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-17</span></dd>
+                        <dd>[未来]<a href="https://flymore.ga/book/future/2018-10-13/79231.html">星际最强纹章师（穿越 修真 机甲）上――醉染轻歌</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-13</span></dd>
+                        <dd>[未来]<a href="https://flymore.ga/book/future/2018-10-10/79145.html">星际修真宗师（穿越 一）――华飞白</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-10</span></dd>
+                        <dd>[穿越]<a href="https://flymore.ga/book/rebirth/2018-10-06/79064.html">快穿之我有病（一）――呼啦圈x</a> <span><i class="layui-icon">&#xe60e;</i> 2018-10-06</span></dd>
+                    </dl>
+
+        <dl class="fly-panel fly-list-one">
+            <dt class="fly-panel-title"><i class="layui-icon layui-icon-read"></i>  熱門小説</dt>
+                        <dd>[穿越]<a href="https://flymore.ga/book/rebirth/2018-01-10/73670.html">夫夫孩子热炕头（穿越 一）――初吻江湖</a> <span><i class="layui-icon">&#xe60e;</i> 2018-01-10</span></dd>
+                        <dd>[未来]<a href="https://flymore.ga/book/future/2018-04-09/75321.html">星际之元帅请淡定（穿越 一）――莫土</a> <span><i class="layui-icon">&#xe60e;</i> 2018-04-09</span></dd>
+                        <dd>[穿越]<a href="https://flymore.ga/book/rebirth/2017-11-12/72565.html">重生之一品男妻（一）——枫香</a> <span><i class="layui-icon">&#xe60e;</i> 2017-11-12</span></dd>
+                        <dd>[未来]<a href="https://flymore.ga/book/future/2017-10-07/71962.html">星际强制婚姻上——优酸乳</a> <span><i class="layui-icon">&#xe60e;</i> 2017-10-07</span></dd>
+                        <dd>[其他]<a href="https://flymore.ga/book/other/2018-01-08/73634.html">婚婚欲睡（一）――廿乱</a> <span><i class="layui-icon">&#xe60e;</i> 2018-01-08</span></dd>
+                        <dd>[穿越]<a href="https://flymore.ga/book/rebirth/2017-10-12/72023.html">重生之丑哥儿种田记上——左木茶茶君</a> <span><i class="layui-icon">&#xe60e;</i> 2017-10-12</span></dd>
+                        <dd>[穿越]<a href="https://flymore.ga/book/rebirth/2018-05-20/76130.html">快穿之炮灰成神之路（八）――沉一鱼</a> <span><i class="layui-icon">&#xe60e;</i> 2018-05-20</span></dd>
+                        <dd>[未来]<a href="https://flymore.ga/book/future/2018-05-29/76291.html">重生之帝后难追（包子 机甲）上――沈闲辞</a> <span><i class="layui-icon">&#xe60e;</i> 2018-05-29</span></dd>
+                        <dd>[未来]<a href="https://flymore.ga/book/future/2017-11-12/72580.html">重生之末世天灾（一）——浪花点点</a> <span><i class="layui-icon">&#xe60e;</i> 2017-11-12</span></dd>
+                        <dd>[未来]<a href="https://flymore.ga/book/future/2017-10-07/71949.html">重生之星际宠婚手册上——衣青箬</a> <span><i class="layui-icon">&#xe60e;</i> 2017-10-07</span></dd>
+                    </dl>
+    </div>
+
+
+    </div>
+    </div>
+
+    <div class="fly-footer">
+    <p>Copyright &copy; 2013-<script type='text/javascript'>var creditsyear = new Date();document.write(creditsyear.getFullYear());</script> <a href="https://www.flymore.ga">丹樂網</a></p>
+    <p class="layui-hide-xs">本站所有内容全部来源于互联网，版权归属于原作者，如果对作品内容、版权等方面有质疑，或对本站有意见建议请发送Email至<a href='mailto:iflymore@yandex.com'>iflymore@yandex.com</a>，感谢您的合作与支持。</p>
+</div>
+
+<a href="#" id="back-to-top"><i class="layui-icon" style="font-size: 36px;">&#xe604;</i></a>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.js"></script>
+<script src='https://flymore.ga/skin/default/js/lang.min.js'></script>
+<script src="https://flymore.ga/skin/default/js/site.min.js"></script>
+    </body>
+</html>
